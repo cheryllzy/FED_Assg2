@@ -1,0 +1,17 @@
+.headerSection {
+  border: 2px black solid;
+  padding: 20px;
+  margin: 0px;
+  height: auto;
+  width: auto;
+  border-radius: 10px;
+  background-color: bisque;
+}
+.card {
+  background-color: bisque;
+  border: 2px black solid;
+  border-radius: 10px;
+  width: 60%;
+  height: 80%;
+  width: auto;
+}
