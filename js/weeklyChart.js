@@ -1,10 +1,9 @@
-//Add API url and website
 const url =
-  "https://billboard-api2.p.rapidapi.com/hot-100?date=2024-01-15&range=1-10";
+  "https://billboard-api2.p.rapidapi.com/hot-100?date=2019-05-11&range=1-10";
 const options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "f69c30f9d6msh672713a3ae759b0p188a2djsn8ea3363cbb73",
+    "X-RapidAPI-Key": "7fb57ae6a3msh9b82223ab632535p1a3027jsnd5322b679e1b",
     "X-RapidAPI-Host": "billboard-api2.p.rapidapi.com",
   },
 };
@@ -12,8 +11,13 @@ const options = {
 async function fetchData() {
   try {
     const response = await fetch(url, options);
-    const result = await response.json();
-    console.log(result); // Log the entire API response to the console
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch data. Status: ${response.status}`);
+    }
+
+    const result = await response.json(); // Assuming the API returns JSON data
+    console.log(result);
     displayTable(result);
   } catch (error) {
     console.error(error);
@@ -55,6 +59,9 @@ function displayTable(data) {
     }
   } else {
     console.error("Invalid or missing data format");
+    // Display a user-friendly error message on the webpage
+    tableBody.innerHTML =
+      "<tr><td colspan='3'>Invalid or missing data</td></tr>";
   }
 }
 
