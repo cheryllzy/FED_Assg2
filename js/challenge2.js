@@ -54,3 +54,17 @@ async function fetchData() {
     console.error(error);
   }
 }
+function submitAnswer() {
+  // Logic to check the user's answer
+  const userAnswer = document.getElementById("answer-input").value;
+  const correctAnswer =
+    document.getElementById("album-box").dataset.correctAnswer;
+
+  // Case-insensitive comparison
+  if (userAnswer.trim().toLowerCase() === correctAnswer.toLowerCase()) {
+    document.getElementById("feedback").innerText = "Correct Answer!";
+  } else {
+    document.getElementById("feedback").innerText =
+      "Incorrect Answer. Try again.";
+  }
+}
