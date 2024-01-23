@@ -16,6 +16,18 @@
       </thead>
       <tbody id="tableBody"></tbody>
     </table>
-    <script src="js/weeklyChart.js"></script>
+
+    <script>
+      const url =
+        "https://billboard-api2.p.rapidapi.com/hot-100?date=2024-01-15&range=1-10";
+      const options = {
+        method: "GET",
+        headers: {
+          "X-RapidAPI-Key":
+            "f69c30f9d6msh672713a3ae759b0p188a2djsn8ea3363cbb73",
+          "X-RapidAPI-Host": "billboard-api2.p.rapidapi.com",
+        },
+      };
+    </script>
   </body>
 </html>
