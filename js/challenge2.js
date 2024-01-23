@@ -8,3 +8,10 @@ const options = {
     "X-RapidAPI-Host": "genius-song-lyrics1.p.rapidapi.com",
   },
 };
+
+//clear feedback function
+function clearFeedback() {
+  //.innerText = "";: retrieved element to an empty string,
+  //effectively removing any text content inside the "feedback" element
+  document.getElementById("feedback").innerText = "";
+}
