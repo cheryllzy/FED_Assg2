@@ -28,6 +28,17 @@
           "X-RapidAPI-Host": "billboard-api2.p.rapidapi.com",
         },
       };
+
+      async function fetchData() {
+        try {
+          const response = await fetch(url, options);
+          const result = await response.json();
+          console.log(result); // Log the entire API response to the console
+          displayTable(result);
+        } catch (error) {
+          console.error(error);
+        }
+      }
     </script>
   </body>
 </html>
