@@ -68,3 +68,14 @@ function submitAnswer() {
       "Incorrect Answer. Try again.";
   }
 }
+
+function nextQuestion() {
+  // Check if there is a specific condition before moving to the next question
+  if (confirm("Do you really want to move to the next question?")) {
+    // Logic to move to the next question
+    fetchData();
+  }
+}
+
+// Initial data fetch when the page loads
+fetchData();
