@@ -15,3 +15,42 @@ function clearFeedback() {
   //effectively removing any text content inside the "feedback" element
   document.getElementById("feedback").innerText = "";
 }
+
+async function fetchData() {
+  try {
+    const response = await fetch(url, options);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const result = await response.json();
+
+    console.log("API Response:", result);
+
+    const albums = result.albums;
+
+    if (!albums || albums.length === 0) {
+      throw new Error("Invalid response or no albums found.");
+    }
+
+    // Log the structure of a sample album object
+    console.log("Sample Album Object:", albums[0]);
+
+    // Logic to handle displaying the album name in the box
+    const albumBox = document.getElementById("album-box");
+    const randomAlbum = albums[Math.floor(Math.random() * albums.length)];
+    const correctAnswer = randomAlbum.artist.name; // Extract the artist's name
+
+    // Display the album name without validation
+    albumBox.innerText = "Album Name: " + (randomAlbum.name || "N/A");
+
+    // Store the correct answer for later validation
+    albumBox.dataset.correctAnswer = correctAnswer;
+
+    // Clear previous feedback
+    clearFeedback();
+  } catch (error) {
+    console.error(error);
+  }
+}
