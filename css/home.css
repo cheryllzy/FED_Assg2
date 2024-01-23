@@ -1,16 +1,15 @@
 body {
-  color: #333; /* Set the default text color */
-  background-color: #0a0c1b; /* Set the default background color */
+  color: #333;
+  background-color: #0a0c1b;
 }
 
 h1,
 h2 {
-  color: #ffffff; /* Set the color for h1 and h2 elements */
+  color: #ffffff;
 }
 
 .card {
-  background-color: #ffffff; /* Set the background color for cards */
-  /*border: 1px solid #dee2e6;Set the border color for cards */
+  background-color: #ffffff;
 }
 
 #card1 {
