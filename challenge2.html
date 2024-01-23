@@ -6,5 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Artist Quiz</title>
   </head>
-  <body></body>
+  <body>
+    <div id="quiz-container">
+      <div id="album-box" data-correct-answer=""></div>
+      <input
+        type="text"
+        id="answer-input"
+        placeholder="Enter the artist's name"
+      />
+      <button onclick="submitAnswer()">Submit</button>
+      <button onclick="nextQuestion()">Next Question</button>
+    </div>
+  </body>
 </html>
