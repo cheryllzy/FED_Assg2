@@ -1,0 +1,66 @@
+body {
+  color: #333; /* Set the default text color */
+  background-color: #0a0c1b; /* Set the default background color */
+}
+
+h1,
+h2 {
+  color: #ffffff; /* Set the color for h1 and h2 elements */
+}
+
+.card {
+  background-color: #ffffff; /* Set the background color for cards */
+  /*border: 1px solid #dee2e6;Set the border color for cards */
+}
+
+#card1 {
+  background-color: #6749ed;
+}
+
+#card2 {
+  background-color: #f95563;
+}
+
+#card3 {
+  background-color: #76d38c;
+}
+
+#card4 {
+  background-color: #85b8ef;
+}
+
+.card-title {
+  color: white;
+  margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+/* override bootstrap css */
+.card .card-text {
+  color: #000000;
+  margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+
+}
+
+.card-body1 {
+  background-color: #8670ec;
+  border: 1px solid #6749ed;
+  border-radius: 0.5rem;
+}
+
+.card-body2 {
+  background-color: #f77883;
+  border: 1px solid #f95563;
+  border-radius: 0.5rem;
+}
+
+.card-body3 {
+  background-color: #a0dbae;
+  border: 1px solid #76d38c;
+  border-radius: 0.5rem;
+}
+
+.card-body4 {
+  background-color: #a6c8ed;
+  border: 1px solid #85b8ef;
+  border-radius: 0.5rem;
+}
