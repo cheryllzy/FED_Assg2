@@ -1,17 +1,65 @@
-.headerSection {
-  border: 2px black solid;
-  padding: 20px;
-  margin: 0px;
-  height: auto;
-  width: auto;
-  border-radius: 10px;
-  background-color: bisque;
+body {
+  color: #333;
+  background-color: #0a0c1b;
 }
+
+h1,
+h2 {
+  color: #ffffff;
+}
+
 .card {
-  background-color: bisque;
-  border: 2px black solid;
-  border-radius: 10px;
-  width: 60%;
-  height: 80%;
-  width: auto;
+  background-color: #ffffff;
+}
+
+#card1 {
+  background-color: #6749ed;
+}
+
+#card2 {
+  background-color: #f95563;
+}
+
+#card3 {
+  background-color: #76d38c;
+}
+
+#card4 {
+  background-color: #85b8ef;
+}
+
+.card-title {
+  color: white;
+  margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+/* override bootstrap css */
+.card .card-text {
+  color: #000000;
+  margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+
+}
+
+.card-body1 {
+  background-color: #8670ec;
+  border: 1px solid #6749ed;
+  border-radius: 0.5rem;
+}
+
+.card-body2 {
+  background-color: #f77883;
+  border: 1px solid #f95563;
+  border-radius: 0.5rem;
+}
+
+.card-body3 {
+  background-color: #a0dbae;
+  border: 1px solid #76d38c;
+  border-radius: 0.5rem;
+}
+
+.card-body4 {
+  background-color: #a6c8ed;
+  border: 1px solid #85b8ef;
+  border-radius: 0.5rem;
 }
