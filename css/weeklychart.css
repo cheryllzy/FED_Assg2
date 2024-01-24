@@ -1,0 +1,25 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #0a0c1b;
+}
+
+h1,
+h2 {
+  color: #ffffff;
+}
+
+.table {
+  background-color: #ffffff;
+}
+
+#tableBody {
+  color: rgb(0, 0, 0);
+}
+
+.table td,
+.table th {
+  border-width: 0.2rem;
+}
