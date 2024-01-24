@@ -1,21 +1,18 @@
-const url =
-  "https://billboard-api2.p.rapidapi.com/hot-100?date=2019-05-11&range=1-10";
-const options = {
-  method: "GET",
-  headers: {
-    "X-RapidAPI-Key": "7fb57ae6a3msh9b82223ab632535p1a3027jsnd5322b679e1b",
-    "X-RapidAPI-Host": "billboard-api2.p.rapidapi.com",
-  },
-};
-
 async function fetchData() {
+  const date = "2024-01-15";
+  const range = "1-10";
+
+  const url = `https://billboard-api2.p.rapidapi.com/hot-100?date=${date}&range=${range}`;
+  const options = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "f1ee603136msh6f15255da6b84dep197b04jsnf926ab422d30",
+      "X-RapidAPI-Host": "billboard-api2.p.rapidapi.com",
+    },
+  };
+
   try {
     const response = await fetch(url, options);
-
-    if (!response.ok) {
-      throw new Error(`Failed to fetch data. Status: ${response.status}`);
-    }
-
     const result = await response.json(); // Assuming the API returns JSON data
     console.log(result);
     displayTable(result);
@@ -35,7 +32,7 @@ function displayTable(data) {
 
   if (content) {
     // Loop through the properties of the 'content' object
-    for (let i = 1; i <= 10; i++) {
+    for (let i = 0; i < 10; i++) {
       const item = content[i];
 
       if (item) {
@@ -65,5 +62,5 @@ function displayTable(data) {
   }
 }
 
-// Call the fetchData function when the page loads
+// Call fetchData to initiate the data retrieval and display
 fetchData();
