@@ -1,10 +1,11 @@
+// Add API Link and Key
 //Add API Link and Key
 const url =
   "https://genius-song-lyrics1.p.rapidapi.com/chart/albums/?time_period=week&per_page=10&page=1";
 const options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "7fb57ae6a3msh9b82223ab632535p1a3027jsnd5322b679e1b",
+    "X-RapidAPI-Key": "a4123a0c9emshae37437481acf31p116ab5jsn6065e0210c9f",
     "X-RapidAPI-Host": "genius-song-lyrics1.p.rapidapi.com",
   },
 };
@@ -13,6 +14,13 @@ let retries = 0;
 
 function clearFeedback() {
   document.getElementById("feedback").innerText = "";
+}
+
+function showCorrectAnswer() {
+  const albumBox = document.getElementById("album-box");
+  const correctAnswer = albumBox.dataset.correctAnswer;
+
+  alert("The correct answer is: " + correctAnswer);
 }
 
 async function fetchData() {
@@ -32,7 +40,6 @@ async function fetchData() {
         console.log("Retrying fetch...");
         return fetchData();
       } else {
-        throw new Error(`HTTP error! Status: ${response.status}`);
       }
     }
 
@@ -51,16 +58,13 @@ async function fetchData() {
     const randomAlbum =
       chartItems[Math.floor(Math.random() * chartItems.length)].item;
 
-    // Ensure the 'item' property exists before attempting to access 'artist'
-    const correctAnswer =
-      randomAlbum.item && randomAlbum.item.artist
-        ? randomAlbum.item.artist.name
-        : "N/A";
+    // Ensure the 'name' property exists before attempting to access it
+    const albumName = randomAlbum.name || "N/A";
 
-    console.log("Random Album:", randomAlbum);
+    console.log("Random Album:", { name: albumName });
 
-    albumBox.innerText = "Album Name: " + (randomAlbum.item.name || "N/A");
-    albumBox.dataset.correctAnswer = correctAnswer;
+    albumBox.innerText = "Album Name: " + albumName;
+    albumBox.dataset.correctAnswer = albumName;
 
     clearFeedback();
   } catch (error) {
@@ -78,6 +82,7 @@ function submitAnswer() {
   } else {
     document.getElementById("feedback").innerText =
       "Incorrect Answer. Try again.";
+    showCorrectAnswer(); // Call the function to show the correct answer
   }
 }
 
@@ -88,4 +93,5 @@ function nextQuestion() {
   // You can add other conditions or remove the check based on your requirements
 }
 
+// Initial fetch
 fetchData();
