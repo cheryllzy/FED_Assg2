@@ -1,88 +1,70 @@
-const url =
-  "https://genius-song-lyrics1.p.rapidapi.com/chart/albums/?time_period=week&per_page=10&page=1";
-const options = {
+// challenge4.js
+
+const questionData = [
+  { id: 670828, correctAnswers: [] },
+  { id: 123456, correctAnswers: [] },
+  { id: 789012, correctAnswers: [] },
+  // Add more questions as needed
+];
+
+let currentQuestionIndex = 0;
+
+const apiOptions = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "7fb57ae6a3msh9b82223ab632535p1a3027jsnd5322b679e1b",
+    "X-RapidAPI-Key": "f1ee603136msh6f15255da6b84dep197b04jsnf926ab422d30",
     "X-RapidAPI-Host": "genius-song-lyrics1.p.rapidapi.com",
   },
 };
 
-let retries = 0;
-
-function clearFeedback() {
-  document.getElementById("feedback").innerText = "";
-}
+let albumName = "";
 
 async function fetchData() {
+  const currentQuestion = questionData[currentQuestionIndex];
+  const apiUrl = `https://genius-song-lyrics1.p.rapidapi.com/album/details/?id=${currentQuestion.id}`;
+
   try {
-    const response = await fetch(url, options);
+    const response = await fetch(apiUrl, apiOptions);
 
     if (!response.ok) {
-      if (response.status === 429 && retries < 3) {
-        const delay = Math.pow(2, retries) * 1000;
-        console.log(
-          `Rate limited (Retry ${retries + 1}/3). Retrying in ${
-            delay / 1000
-          } seconds...`
-        );
-        retries++;
-        await new Promise((resolve) => setTimeout(resolve, delay));
-        console.log("Retrying fetch...");
-        return fetchData();
-      } else {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
+      throw new Error(`HTTP error! Status: ${response.status}`);
     }
 
     const result = await response.json();
-    console.log("API Response:", result);
 
-    const chartItems = result.chart_items;
+    // Adjust this part based on the actual response structure
+    albumName = result.album.name || "Album name not found";
 
-    if (!chartItems || chartItems.length === 0) {
-      throw new Error("Invalid response or no albums found.");
-    }
+    // Extract and store correct answers from the API response
+    currentQuestion.correctAnswers = result.album.correct_answers || [];
 
-    console.log("Sample Album Object:", chartItems[0].item);
-
-    const albumBox = document.getElementById("album-box");
-    const randomAlbum =
-      chartItems[Math.floor(Math.random() * chartItems.length)].item;
-
-    // Ensure the 'item' property exists before attempting to access 'artist'
-    const correctAnswer =
-      randomAlbum.item && randomAlbum.item.artist
-        ? randomAlbum.item.artist.name
-        : "N/A";
-
-    console.log("Random Album:", randomAlbum);
-
-    albumBox.innerText = "Album Name: " + (randomAlbum.item.name || "N/A");
-    albumBox.dataset.correctAnswer = correctAnswer;
-
-    clearFeedback();
+    document.getElementById("albumName").innerText = albumName;
   } catch (error) {
     console.error(error);
   }
 }
-function submitAnswer() {
-  const userAnswer = document.getElementById("answer-input").value;
-  const correctAnswer =
-    document.getElementById("album-box").dataset.correctAnswer;
 
-  if (userAnswer.trim().toLowerCase() === correctAnswer.toLowerCase()) {
-    document.getElementById("feedback").innerText = "Correct Answer!";
+function checkGuess() {
+  const userGuess = document.getElementById("guessInput").value.toLowerCase();
+  const currentQuestion = questionData[currentQuestionIndex];
+  const lowerCaseCorrectAnswers = currentQuestion.correctAnswers.map((answer) =>
+    answer.toLowerCase()
+  );
+  const resultMessage = document.getElementById("resultMessage");
+
+  if (lowerCaseCorrectAnswers.includes(userGuess)) {
+    resultMessage.innerText = "Correct! You guessed the album.";
   } else {
-    document.getElementById("feedback").innerText =
-      "Incorrect Answer. Try again.";
+    resultMessage.innerText = "Incorrect. Try again!";
   }
 }
 
 function nextQuestion() {
-  if (confirm("Do you really want to move to the next question?")) {
-    fetchData();
-  }
+  currentQuestionIndex = (currentQuestionIndex + 1) % questionData.length;
+  fetchData();
+  document.getElementById("guessInput").value = ""; // Clear the input field
+  document.getElementById("resultMessage").innerText = ""; // Clear the result message
 }
 
+// Call the fetchData function to fetch and display the album name on page load
 fetchData();
