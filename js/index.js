@@ -24,14 +24,15 @@ document
           )
             .then((response) => response.json())
             .then((data) => {
-              // Handle the login response
               console.log(data);
 
-              // Display alert based on the response
+              //display alert if unsuccessful
               if (data.length > 0) {
-                alert("Login successful!");
+                //redirect to home.html after succcessful login
+                window.location.href = "/html/home.html";
               } else {
                 alert(
+                  //display alert if unsuccessful
                   "Login unsuccessful. Please check your username and password."
                 );
               }

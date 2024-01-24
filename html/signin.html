@@ -10,35 +10,56 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/index.css" />
   </head>
-  <body>
+  <body class="bg-dark text-white">
     <div class="container">
-      <h1 id="loginTitle">Sign Up</h1>
-      <form id="loginForm">
-        <div class="mb-3">
-          <label for="exampleInputUsername" class="form-label">Username</label>
-          <input
-            type="text"
-            class="form-control"
-            id="exampleInputUsername"
-            aria-describedby="usernameHelp"
-          />
-          <div id="usernameHelp" class="form-text">
-            Choose a unique username.
-          </div>
+      <div class="row">
+        <div class="col-12 text-center">
+          <h5 class="mt-3">TuneTrivia</h5>
         </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Password</label>
-          <input
-            type="password"
-            class="form-control"
-            id="exampleInputPassword1"
-          />
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <h2 id="loginTitle">Sign Up</h2>
+          <form id="loginForm">
+            <div class="mb-3">
+              <label for="exampleInputUsername" class="form-label"
+                >Username</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="exampleInputUsername"
+                aria-describedby="usernameHelp"
+              />
+              <small id="usernameHelp" class="form-text text-muted">
+                Choose a unique username.
+              </small>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label"
+                >Password</label
+              >
+              <input
+                type="password"
+                class="form-control"
+                id="exampleInputPassword1"
+              />
+            </div>
+            <p>Have an account? <a href="/index.html">Log in now</a></p>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+          </form>
         </div>
-        <p>Have an account? <a href="index.html">Log in now</a></p>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+      </div>
     </div>
+
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -54,6 +75,6 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    <script src="js/signin.js"></script>
+    <script src="/js/signin.js"></script>
   </body>
 </html>
