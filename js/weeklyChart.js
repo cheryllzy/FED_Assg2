@@ -6,7 +6,7 @@ async function fetchData() {
   const options = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "f1ee603136msh6f15255da6b84dep197b04jsnf926ab422d30",
+      "X-RapidAPI-Key": "a4123a0c9emshae37437481acf31p116ab5jsn6065e0210c9f",
       "X-RapidAPI-Host": "billboard-api2.p.rapidapi.com",
     },
   };
