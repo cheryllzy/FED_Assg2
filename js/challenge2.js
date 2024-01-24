@@ -1,3 +1,4 @@
+//Add API Link and Key
 const url =
   "https://genius-song-lyrics1.p.rapidapi.com/chart/albums/?time_period=week&per_page=10&page=1";
 const options = {
@@ -66,6 +67,7 @@ async function fetchData() {
     console.error(error);
   }
 }
+
 function submitAnswer() {
   const userAnswer = document.getElementById("answer-input").value;
   const correctAnswer =
@@ -83,6 +85,7 @@ function nextQuestion() {
   if (confirm("Do you really want to move to the next question?")) {
     fetchData();
   }
+  // You can add other conditions or remove the check based on your requirements
 }
 
 fetchData();
