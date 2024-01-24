@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lyrics Quiz</title>
+  </head>
+  <body>
+    <div id="lyrics-container">
+      <h2>Guess the Song</h2>
+
+      <div id="lyrics-box" data-correct-answer=""></div>
+
+      <input
+        type="text"
+        id="answer-input"
+        placeholder="Enter the song's title"
+      />
+      <button onclick="submitAnswer()">Submit</button>
+      <button onclick="nextQuestion()">Next Question</button>
+      <div id="feedback"></div>
+    </div>
+    <script src="/js/challenge1-EasyMode.js"></script>
+  </body>
+</html>
