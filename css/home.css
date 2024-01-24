@@ -3,6 +3,12 @@ body {
   background-color: #0a0c1b;
 }
 
+.card-img-top {
+  object-fit: contain;
+  width: 100%;
+  height: 140px;
+}
+
 h1,
 h2 {
   color: #ffffff;
@@ -62,4 +68,8 @@ h2 {
   background-color: #a6c8ed;
   border: 1px solid #85b8ef;
   border-radius: 0.5rem;
+}
+
+.card-link{
+  text-decoration: none;
 }
