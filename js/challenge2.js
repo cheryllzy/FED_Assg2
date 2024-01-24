@@ -1,5 +1,4 @@
 // Add API Link and Key
-//Add API Link and Key
 const url =
   "https://genius-song-lyrics1.p.rapidapi.com/chart/albums/?time_period=week&per_page=10&page=1";
 const options = {
@@ -40,6 +39,7 @@ async function fetchData() {
         console.log("Retrying fetch...");
         return fetchData();
       } else {
+        throw new Error("Failed to fetch data.");
       }
     }
 
@@ -58,13 +58,17 @@ async function fetchData() {
     const randomAlbum =
       chartItems[Math.floor(Math.random() * chartItems.length)].item;
 
-    // Ensure the 'name' property exists before attempting to access it
+    // Ensure the 'name' and 'artist' properties exist before attempting to access them
     const albumName = randomAlbum.name || "N/A";
+    const artistName = randomAlbum.artist ? randomAlbum.artist.name : "N/A";
 
-    console.log("Random Album:", { name: albumName });
+    console.log("Random Album:", { name: albumName, artist: artistName });
 
     albumBox.innerText = "Album Name: " + albumName;
-    albumBox.dataset.correctAnswer = albumName;
+    document.getElementById("answer-input").value = ""; // Clear the previous user input
+    document.getElementById("answer-input").placeholder =
+      "Enter the artist's name";
+    albumBox.dataset.correctAnswer = artistName;
 
     clearFeedback();
   } catch (error) {
