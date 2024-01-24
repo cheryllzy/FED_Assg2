@@ -1,18 +1,14 @@
-//Add API Link and Key
 const url =
   "https://genius-song-lyrics1.p.rapidapi.com/artist/albums/?id=344497&per_page=20&page=1";
 const options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "f69c30f9d6msh672713a3ae759b0p188a2djsn8ea3363cbb73",
+    "X-RapidAPI-Key": "f1ee603136msh6f15255da6b84dep197b04jsnf926ab422d30",
     "X-RapidAPI-Host": "genius-song-lyrics1.p.rapidapi.com",
   },
 };
 
-//clear feedback function
 function clearFeedback() {
-  //.innerText = "";: retrieved element to an empty string,
-  //effectively removing any text content inside the "feedback" element
   document.getElementById("feedback").innerText = "";
 }
 
@@ -54,6 +50,7 @@ async function fetchData() {
     console.error(error);
   }
 }
+
 function submitAnswer() {
   // Logic to check the user's answer
   const userAnswer = document.getElementById("answer-input").value;
@@ -75,6 +72,7 @@ function nextQuestion() {
     // Logic to move to the next question
     fetchData();
   }
+  // You can add other conditions or remove the check based on your requirements
 }
 
 // Initial data fetch when the page loads
