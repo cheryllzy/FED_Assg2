@@ -10,6 +10,8 @@ const options = {
 };
 
 let retries = 0;
+let attempts = 0;
+const maxAttempts = 3;
 
 function clearFeedback() {
   document.getElementById("feedback").innerText = "";
@@ -71,6 +73,7 @@ async function fetchData() {
     albumBox.dataset.correctAnswer = artistName;
 
     clearFeedback();
+    attempts = 0; // Reset the attempts when fetching a new question
   } catch (error) {
     console.error(error);
   }
@@ -81,12 +84,25 @@ function submitAnswer() {
   const correctAnswer =
     document.getElementById("album-box").dataset.correctAnswer;
 
+  attempts++;
+
   if (userAnswer.trim().toLowerCase() === correctAnswer.toLowerCase()) {
     document.getElementById("feedback").innerText = "Correct Answer!";
+    attempts = 0; // Reset attempts on correct answer
   } else {
-    document.getElementById("feedback").innerText =
-      "Incorrect Answer. Try again.";
+    if (attempts === maxAttempts) {
+      document.getElementById("feedback").innerText =
+        "Sorry, you've reached the maximum attempts. The correct answer is: " +
+        correctAnswer;
+    } else {
+      document.getElementById("feedback").innerText =
+        "Incorrect Answer. Try again.";
+    }
+  }
+
+  if (attempts === maxAttempts) {
     showCorrectAnswer(); // Call the function to show the correct answer
+    fetchData(); // Fetch a new question after showing the correct answer
   }
 }
 
