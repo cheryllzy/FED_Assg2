@@ -1,0 +1,36 @@
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  color: #333;
+  background-color: #0a0c1b;
+}
+
+.container {
+  background-color: #24273d;
+  padding: 20px;
+  margin: 0;
+  border-radius: 1rem;
+  color: white;
+}
+
+.btn-primary {
+  background-color: #24273d;
+  border: 1px solid #3f456e;
+}
+
+.btn-primary:hover {
+  background-color: #3d4052;
+  color: #ffffff;
+  border-color: #4a4f71;
+}
+
+#loginForm a {
+  color: #4c66f9;
+}
