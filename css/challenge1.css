@@ -1,0 +1,68 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+h1,
+h2 {
+  color: white;
+}
+body {
+  background-color: #0a0c1b;
+}
+
+.card {
+  background-color: #6749ed;
+}
+
+.card-header {
+  background-color: #6749ed;
+}
+
+.card-body {
+  background-color: #8670ec;
+}
+
+.card-title {
+  color: #ffffff;
+}
+
+.card-link {
+  text-decoration: none;
+}
+
+.form-group label {
+  color: black;
+}
+
+.form-control {
+  background-color: #ffffff;
+  color: black;
+}
+
+.btn-primary {
+  background-color: #85b8ef;
+  border: 1px solid #85b8ef;
+}
+
+.btn-primary:hover {
+  background-color: #5fa1e7;
+  border-color: #5fa1e7;
+}
+
+.btn-secondary {
+  background-color: #f95563;
+  border: 1px solid #f95563;
+}
+
+.btn-secondary:hover {
+  background-color: #d94651;
+  border-color: #d94651;
+}
+
+#resultMessage {
+  color: black;
+}
+
+#chorusLyrics {
+  color: black;
+}
