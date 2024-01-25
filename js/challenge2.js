@@ -115,3 +115,8 @@ function nextQuestion() {
 
 // Initial fetch
 fetchData();
+
+// use arrow button to go back to home page
+function goBack() {
+  window.history.back();
+}
