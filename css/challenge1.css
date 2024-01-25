@@ -63,16 +63,7 @@ body {
   color: black;
 }
 
-#chorusLyrics {
-  color: black;
-}
-
-.back-button {
-  fill: white;
+.back-button{
+  z-index: 999;
   cursor: pointer;
-  margin-right: 10px;
-}
-
-.back-button:hover {
-  fill: #f8f9fa;
 }
