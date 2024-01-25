@@ -64,3 +64,8 @@ function displayTable(data) {
 
 // Call fetchData to initiate the data retrieval and display
 fetchData();
+
+// use arrow button to go back to home page
+function goBack() {
+  window.history.back();
+}
