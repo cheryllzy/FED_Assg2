@@ -4,7 +4,7 @@ const apiUrl =
 const apiOptions = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "a4123a0c9emshae37437481acf31p116ab5jsn6065e0210c9f",
+    "X-RapidAPI-Key": "5901f30550mshea15d5723e6a80dp1c01a9jsn2791746a822b",
     "X-RapidAPI-Host": "genius-song-lyrics1.p.rapidapi.com",
   },
 };
@@ -54,3 +54,9 @@ function nextQuestion() {
 
 // Call the fetchData function to fetch and display the lyrics on page load
 fetchData();
+
+
+// use arrow button to go back to home page
+function goBack() {
+  window.history.back();
+}

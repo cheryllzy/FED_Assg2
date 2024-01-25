@@ -63,6 +63,7 @@ body {
   color: black;
 }
 
-#chorusLyrics {
-  color: black;
+.back-button{
+  z-index: 999;
+  cursor: pointer;
 }
