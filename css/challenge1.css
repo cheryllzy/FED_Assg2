@@ -1,4 +1,56 @@
 * {
-  font-family: "Poppins", sans-serif;
-}
+    font-family: "Poppins", sans-serif;
+  }
+  
+  h1,h2{
+    color: white;
+  }
+  body {
+    background-color: #0a0c1b;
+  }
+  
+  .card {
+    background-color: #6749ed;
+  }
+  
+  .card-header {
+    background-color: #6749ed; 
+  }
+  
+  .card-body {
+    background-color: #8670ec;
+  }
+  
+  .card-title {
+    color: #ffffff;
+  }
+  
+  .card-link {
+    text-decoration: none;
+  }
 
+  .form-group label {
+    color: black;
+  }
+  
+  .form-control {
+    background-color: #ffffff;
+    color: black;
+  }
+  
+  .btn-primary {
+    background-color: #85b8ef; 
+  }
+  
+  .btn-secondary {
+    background-color: #f95563; 
+  }
+  
+  #resultMessage {
+    color: black;
+  }
+
+  #chorusLyrics{
+    color:black;
+  }
+  
