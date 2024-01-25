@@ -66,3 +66,13 @@ body {
 #chorusLyrics {
   color: black;
 }
+
+.back-button {
+  fill: white;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.back-button:hover {
+  fill: #f8f9fa;
+}

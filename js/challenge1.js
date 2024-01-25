@@ -54,3 +54,9 @@ function nextQuestion() {
 
 // Call the fetchData function to fetch and display the lyrics on page load
 fetchData();
+
+
+// use arrow button to go back to home page
+function goBack() {
+  window.history.back();
+}
