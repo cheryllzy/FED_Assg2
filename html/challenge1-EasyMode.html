@@ -2,24 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lyrics Quiz</title>
+    <title>Song Lyric Guessing Game</title>
   </head>
   <body>
-    <div id="lyrics-container">
-      <h2>Guess the Song</h2>
-
-      <div id="lyrics-box" data-correct-answer=""></div>
-
-      <input
-        type="text"
-        id="answer-input"
-        placeholder="Enter the song's title"
-      />
-      <button onclick="submitAnswer()">Submit</button>
+    <div id="lyricSection">
+      <h2>Guess the Song:</h2>
+      <div id="chorusLyrics"></div>
+    </div>
+    <br />
+    <div id="guessForm">
+      <label for="guessInput">Your Guess:</label>
+      <input type="text" id="guessInput" placeholder="Enter your guess" />
+      <button onclick="checkGuess()">Submit Guess</button>
       <button onclick="nextQuestion()">Next Question</button>
-      <div id="feedback"></div>
+      <p id="resultMessage"></p>
     </div>
     <script src="/js/challenge1-EasyMode.js"></script>
   </body>
