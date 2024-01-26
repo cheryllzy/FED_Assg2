@@ -1,5 +1,5 @@
 const apiUrl =
-  "https://genius-song-lyrics1.p.rapidapi.com/song/lyrics/?id=2396891";
+  "https://genius-song-lyrics1.p.rapidapi.com/song/lyrics/?id=2396889";
 
 const apiOptions = {
   method: "GET",
@@ -10,7 +10,7 @@ const apiOptions = {
 };
 
 let chorusText = "";
-let correctAnswers = ["aphrodite"]; // Change the correct answer accordingly
+let correctAnswers = ["You Got It Worse ..."]; // Change the correct answer accordingly
 
 async function fetchData() {
   try {
@@ -29,7 +29,7 @@ async function fetchData() {
       .replace(/<br>/g, "\n");
 
     // Get the first 568 characters
-    const truncatedLyrics = formattedLyrics.substring(0, 568);
+    const truncatedLyrics = formattedLyrics.substring(0, 465);
 
     // Remove empty lines
     const finalLyrics = truncatedLyrics.replace(/^\s*[\r\n]/gm, "");
