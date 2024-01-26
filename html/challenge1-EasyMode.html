@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Song Lyric Guessing Game</title>
+  </head>
+  <body>
+    <div id="lyricSection">
+      <h2>Guess the Song:</h2>
+      <div id="chorusLyrics"></div>
+    </div>
+    <br />
+    <div id="guessForm">
+      <label for="guessInput">Your Guess:</label>
+      <input type="text" id="guessInput" placeholder="Enter your guess" />
+      <button onclick="checkGuess()">Submit Guess</button>
+      <button onclick="nextQuestion()">Next Question</button>
+      <p id="resultMessage"></p>
+    </div>
+    <script src="/js/challenge1-EasyMode.js"></script>
+  </body>
+</html>
