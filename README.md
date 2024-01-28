@@ -12,3 +12,5 @@ API Used for challenge 1(guess the song), challenge 2 (guess the artist), weekly
 
 challenge 1(guess the song) , challenge 2 (guess the artist) - https://rapidapi.com/Glavier/api/genius-song-lyrics1
 weekly chart - https://rapidapi.com/LDVIN/api/billboard-api
+
+transition animation - https://lottiefiles.com/animations/music-sound-equalizer-loader-7AMojzJim6
