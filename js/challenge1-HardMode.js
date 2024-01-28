@@ -11,6 +11,7 @@ const apiOptions = {
 
 let chorusText = "";
 let correctAnswers = ["faded"];
+let score = 0; // Initialize the score variable
 
 async function fetchData() {
   try {
@@ -52,6 +53,10 @@ function nextQuestion() {
   fetchData();
   document.getElementById("guessInput").value = ""; // Clear the input field
   document.getElementById("resultMessage").innerText = ""; // Clear the result message
+}
+
+function updateScoreDisplay() {
+  document.getElementById("scoreDisplay").innerText = "Score: " + score; // Update the score display
 }
 
 // Call the fetchData function to fetch and display the lyrics on page load
