@@ -4,13 +4,14 @@ const apiUrl =
 const apiOptions = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "5901f30550mshea15d5723e6a80dp1c01a9jsn2791746a822b",
+    "X-RapidAPI-Key": "0f6d60137amsh81fa88f84819e24p14880ejsn839d7e746f66",
     "X-RapidAPI-Host": "genius-song-lyrics1.p.rapidapi.com",
   },
 };
 
 let chorusText = "";
 let correctAnswers = ["faded"];
+let score = 0; // Initialize the score variable
 
 async function fetchData() {
   try {
@@ -41,6 +42,8 @@ function checkGuess() {
 
   if (correctAnswers.includes(userGuess)) {
     resultMessage.innerText = "Correct! You guessed the song.";
+    score += 15; // Update the score by 15 points for a correct answer
+    updateScoreDisplay(); // Update the score display
   } else {
     resultMessage.innerText = "Incorrect. Try again!";
   }
@@ -52,9 +55,12 @@ function nextQuestion() {
   document.getElementById("resultMessage").innerText = ""; // Clear the result message
 }
 
+function updateScoreDisplay() {
+  document.getElementById("scoreDisplay").innerText = "Score: " + score; // Update the score display
+}
+
 // Call the fetchData function to fetch and display the lyrics on page load
 fetchData();
-
 
 // use arrow button to go back to home page
 function goBack() {
