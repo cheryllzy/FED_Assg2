@@ -11,6 +11,7 @@ const apiOptions = {
 
 let chorusText = "";
 let correctAnswers = ["aphrodite"]; // Change the correct answer accordingly
+let score = 0; // Initialize the score variable
 
 async function fetchData() {
   try {
@@ -46,6 +47,8 @@ function checkGuess() {
 
   if (correctAnswers.includes(userGuess)) {
     resultMessage.innerText = "Correct! You guessed the song.";
+    score += 5; // Update the score by 5 points for a correct answer
+    updateScoreDisplay(); // Update the score display
   } else {
     resultMessage.innerText = "Incorrect. Try again!";
   }
@@ -55,6 +58,10 @@ function nextQuestion() {
   fetchData();
   document.getElementById("guessInput").value = ""; // Clear the input field
   document.getElementById("resultMessage").innerText = ""; // Clear the result message
+}
+
+function updateScoreDisplay() {
+  document.getElementById("scoreDisplay").innerText = "Score: " + score; // Update the score display
 }
 
 // Call the fetchData function to fetch and display the lyrics on page load
