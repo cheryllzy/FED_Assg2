@@ -4,6 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Song Lyric Guessing Game</title>
+    <style>
+      #scoreDisplay {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+    </style>
   </head>
   <body>
     <div id="lyricSection">
@@ -19,6 +28,7 @@
       <button onclick="nextQuestion()">Next Question</button>
       <p id="resultMessage"></p>
     </div>
-    <script src="/js/challenge1-IntermediateMode.js"></script>
+    <p id="scoreDisplay">Score: 0</p>
+    <script src="/js/challenge1-ImmediateMode.js"></script>
   </body>
 </html>
