@@ -1,20 +1,22 @@
-const apiUrl =
-  "https://genius-song-lyrics1.p.rapidapi.com/song/lyrics/?id=2396873";
+const apiUrl = "https://genius-song-lyrics1.p.rapidapi.com/song/lyrics";
 
 const apiOptions = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "9c305a1717msh0bec0b962478cacp1437e2jsndde67c97605c",
+    "X-RapidAPI-Key": "0f6d60137amsh81fa88f84819e24p14880ejsn839d7e746f66",
     "X-RapidAPI-Host": "genius-song-lyrics1.p.rapidapi.com",
   },
 };
 
 let chorusText = "";
-let correctAnswers = ["aphrodite"]; // Change the correct answer accordingly
+let correctAnswers = []; // Change the correct answer accordingly
 let score = 0; // Initialize the score variable
+const songIds = ["2396873", "131312312", "342432432", "24234234"];
 
 async function fetchData() {
   try {
+    let song = getRandomId(songIds);
+    apiUrl = apiUrl + "/?id=" + song;
     const response = await fetch(apiUrl, apiOptions);
 
     if (!response.ok) {
@@ -22,7 +24,10 @@ async function fetchData() {
     }
 
     const result = await response.json();
+    console.log(result);
     const lyrics = result.lyrics.lyrics.body.html;
+
+    //put the title into the correctAnswers array
 
     // Remove the <p> tags and replace <br> with line breaks
     const formattedLyrics = lyrics
