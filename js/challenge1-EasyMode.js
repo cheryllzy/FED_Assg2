@@ -14,16 +14,15 @@ let score = 0;
 let incorrectAttempts = 0;
 const maxIncorrectAttempts = 3;
 const songIds = [
-  "2396871",
-  "2396884",
-  "2396873",
-  "2396874",
-  "2396884",
-  "2396885",
-  "2396866",
-  "2396888",
-  "2396889",
-  "2396890",
+  "2396871", //faded
+  "2396884", //2U
+  "2396873", //Aphrodite
+  "2396867", //Bitter
+  "2396885", //Women, Weed, & 808's
+  "2396866", //Keisha's Intro (Skit)
+  "2396888", //Say It / Don't
+  "2396889", //You Got It Worse...
+  "2396890", //Ilusm
 ];
 
 function getRandomId(array) {
