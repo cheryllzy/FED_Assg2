@@ -1,5 +1,4 @@
 const apiUrl = "https://genius-song-lyrics1.p.rapidapi.com/song/lyrics";
-
 const apiOptions = {
   method: "GET",
   headers: {
@@ -8,21 +7,31 @@ const apiOptions = {
   },
 };
 
-let chorusText = "";
-let correctAnswers = ["Your Title Goes Here"]; // Update the correct answer accordingly
+let correctAnswersMap = {
+  2396871: "Faded",
+  2396884: "2U",
+  2396873: "Aphrodite",
+  2396867: "Bitter",
+  2396881: "Mr. Skinny",
+  2396886: "The Light of the Menorah", //
+  2396888: "Say It / Don't",
+  2396889: "You Got It Worse...",
+  2396890: "Ilusm",
+};
+
 let score = 0;
 let incorrectAttempts = 0;
 const maxIncorrectAttempts = 3;
 const songIds = [
-  "2396871", //faded
-  "2396884", //2U
-  "2396873", //Aphrodite
-  "2396867", //Bitter
-  "2396885", //Women, Weed, & 808's
-  "2396866", //Keisha's Intro (Skit)
-  "2396888", //Say It / Don't
-  "2396889", //You Got It Worse...
-  "2396890", //Ilusm
+  "2396871",
+  "2396884",
+  "2396873",
+  "2396867",
+  "2396881",
+  "2396886",
+  "2396888",
+  "2396889",
+  "2396890",
 ];
 
 function getRandomId(array) {
@@ -44,8 +53,11 @@ async function fetchData() {
     console.log(result);
     const lyrics = result.lyrics.lyrics.body.html;
 
-    //put the title into the correctAnswers array
-    correctAnswers.push(result.title);
+    // Get the correct title from the map
+    const correctTitle = correctAnswersMap[song];
+
+    // Put the title into the correctAnswers array
+    correctAnswers = [correctTitle];
 
     // Function to remove HTML tags from a string
     function stripHtml(html) {
