@@ -85,7 +85,11 @@ function checkGuess() {
   const userGuess = document.getElementById("guessInput").value.toLowerCase();
   const resultMessage = document.getElementById("resultMessage");
 
-  if (correctAnswers.includes(userGuess)) {
+  if (
+    correctAnswers
+      .map((answer) => answer.toLowerCase())
+      .includes(userGuess.toLowerCase())
+  ) {
     resultMessage.innerText = "Correct! You guessed the song.";
     score += 5;
     updateScoreDisplay();
