@@ -1,41 +1,81 @@
-const apiUrl =
-  "https://genius-song-lyrics1.p.rapidapi.com/song/lyrics/?id=2396889";
-
+const apiUrl = "https://genius-song-lyrics1.p.rapidapi.com/song/lyrics";
 const apiOptions = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "0f6d60137amsh81fa88f84819e24p14880ejsn839d7e746f66",
+    "X-RapidAPI-Key": "45fa6a87cemsh66d3cdf7833490ep1af944jsn2754853125fb",
     "X-RapidAPI-Host": "genius-song-lyrics1.p.rapidapi.com",
   },
 };
 
-let chorusText = "";
-let correctAnswers = ["you got it worse ..."];
-let score = 0; // Initialize the score variable
+let score = 0;
+let incorrectAttempts = 0;
+const maxIncorrectAttempts = 3;
+const songIds = [
+  "2396871",
+  "2396884",
+  "2396873",
+  "2396867",
+  "2396881",
+  "2396863",
+  "2396888",
+  "2396889",
+  "2396895",
+];
+
+let correctAnswersMap = {};
+
+function getRandomId(array) {
+  const randomIndex = Math.floor(Math.random() * array.length);
+  return array[randomIndex];
+}
 
 async function fetchData() {
   try {
-    const response = await fetch(apiUrl, apiOptions);
+    let song = getRandomId(songIds);
+    let dynamicApiUrl = `${apiUrl}/?id=${song}`;
+    const response = await fetch(dynamicApiUrl, apiOptions);
 
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
 
     const result = await response.json();
-    const lyrics = result.lyrics.lyrics.body.html;
+    console.log(result);
 
-    // Remove the <p> tags and replace <br> with line breaks
-    const formattedLyrics = lyrics
-      .replace(/<\/?p>/g, "")
-      .replace(/<br>/g, "\n");
+    // Check if lyrics and tracking_data exist in the response
+    if (result.lyrics && result.lyrics.tracking_data) {
+      const lyrics = result.lyrics.lyrics.body.html;
 
-    // Get the first 568 characters
-    const truncatedLyrics = formattedLyrics.substring(0, 465);
+      // Get the correct title from the API response
+      const correctTitle = result.lyrics.tracking_data.title;
 
-    // Remove empty lines
-    const finalLyrics = truncatedLyrics.replace(/^\s*[\r\n]/gm, "");
+      // Put the title into the correctAnswers array
+      correctAnswers = [correctTitle];
 
-    document.getElementById("chorusLyrics").innerText = finalLyrics;
+      // Function to remove HTML tags from a string
+      function stripHtml(html) {
+        let doc = new DOMParser().parseFromString(html, "text/html");
+        return doc.body.textContent || "";
+      }
+
+      // Remove HTML tags from the lyrics
+      const formattedLyrics = stripHtml(lyrics);
+
+      // Split the lyrics into paragraphs
+      const paragraphs = formattedLyrics.split(/\n\s*\n/);
+
+      // Display the first three paragraphs
+      const truncatedLyrics = paragraphs.slice(0, 2).join("\n");
+
+      // Remove empty lines
+      const finalLyrics = truncatedLyrics.replace(/^\s*[\r\n]/gm, "");
+
+      document.getElementById("chorusLyrics").innerText = finalLyrics;
+    } else {
+      console.error(
+        "Error: 'lyrics' or 'tracking_data' not found in the API response"
+      );
+    }
   } catch (error) {
     console.error(error);
   }
@@ -45,23 +85,38 @@ function checkGuess() {
   const userGuess = document.getElementById("guessInput").value.toLowerCase();
   const resultMessage = document.getElementById("resultMessage");
 
-  if (correctAnswers.includes(userGuess)) {
+  if (
+    correctAnswers
+      .map((answer) => answer.toLowerCase())
+      .includes(userGuess.toLowerCase())
+  ) {
     resultMessage.innerText = "Correct! You guessed the song.";
-    score += 10; // Update the score by 10 points for a correct answer
-    updateScoreDisplay(); // Update the score display
+    score += 5;
+    updateScoreDisplay();
   } else {
-    resultMessage.innerText = "Incorrect. Try again!";
+    incorrectAttempts++;
+    resultMessage.innerText = `Incorrect. Attempt ${incorrectAttempts} of ${maxIncorrectAttempts}. Try again!`;
+
+    if (incorrectAttempts >= maxIncorrectAttempts) {
+      revealCorrectAnswer();
+    }
   }
+}
+
+function revealCorrectAnswer() {
+  const resultMessage = document.getElementById("resultMessage");
+  resultMessage.innerText = `Sorry, you've exceeded the maximum attempts. The correct answer is: ${correctAnswers[0]}. Press Next Question to continue`;
 }
 
 function nextQuestion() {
   fetchData();
-  document.getElementById("guessInput").value = ""; // Clear the input field
-  document.getElementById("resultMessage").innerText = ""; // Clear the result message
+  document.getElementById("guessInput").value = "";
+  document.getElementById("resultMessage").innerText = "";
+  incorrectAttempts = 0; // Reset the incorrect attempts for the next question
 }
 
 function updateScoreDisplay() {
-  document.getElementById("scoreDisplay").innerText = "Score: " + score; // Update the score display
+  document.getElementById("scoreDisplay").innerText = `Score: ${score}`;
 }
 
 // Call the fetchData function to fetch and display the lyrics on page load
