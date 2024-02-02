@@ -7,18 +7,6 @@ const apiOptions = {
   },
 };
 
-let correctAnswersMap = {
-  2396871: "Faded",
-  2396884: "2U",
-  2396873: "Aphrodite",
-  2396867: "Bitter",
-  2396881: "Mr. Skinny",
-  2396886: "The Light of the Menorah", //
-  2396888: "Say It / Don't",
-  2396889: "You Got It Worse...",
-  2396890: "Ilusm",
-};
-
 let score = 0;
 let incorrectAttempts = 0;
 const maxIncorrectAttempts = 3;
@@ -33,6 +21,8 @@ const songIds = [
   "2396889",
   "2396890",
 ];
+
+let correctAnswersMap = {};
 
 function getRandomId(array) {
   const randomIndex = Math.floor(Math.random() * array.length);
@@ -51,33 +41,41 @@ async function fetchData() {
 
     const result = await response.json();
     console.log(result);
-    const lyrics = result.lyrics.lyrics.body.html;
 
-    // Get the correct title from the map
-    const correctTitle = correctAnswersMap[song];
+    // Check if lyrics and tracking_data exist in the response
+    if (result.lyrics && result.lyrics.tracking_data) {
+      const lyrics = result.lyrics.lyrics.body.html;
 
-    // Put the title into the correctAnswers array
-    correctAnswers = [correctTitle];
+      // Get the correct title from the API response
+      const correctTitle = result.lyrics.tracking_data.title;
 
-    // Function to remove HTML tags from a string
-    function stripHtml(html) {
-      let doc = new DOMParser().parseFromString(html, "text/html");
-      return doc.body.textContent || "";
+      // Put the title into the correctAnswers array
+      correctAnswers = [correctTitle];
+
+      // Function to remove HTML tags from a string
+      function stripHtml(html) {
+        let doc = new DOMParser().parseFromString(html, "text/html");
+        return doc.body.textContent || "";
+      }
+
+      // Remove HTML tags from the lyrics
+      const formattedLyrics = stripHtml(lyrics);
+
+      // Split the lyrics into paragraphs
+      const paragraphs = formattedLyrics.split(/\n\s*\n/);
+
+      // Display the first three paragraphs
+      const truncatedLyrics = paragraphs.slice(0, 3).join("\n");
+
+      // Remove empty lines
+      const finalLyrics = truncatedLyrics.replace(/^\s*[\r\n]/gm, "");
+
+      document.getElementById("chorusLyrics").innerText = finalLyrics;
+    } else {
+      console.error(
+        "Error: 'lyrics' or 'tracking_data' not found in the API response"
+      );
     }
-
-    // Remove HTML tags from the lyrics
-    const formattedLyrics = stripHtml(lyrics);
-
-    // Split the lyrics into paragraphs
-    const paragraphs = formattedLyrics.split(/\n\s*\n/);
-
-    // Display the first three paragraphs
-    const truncatedLyrics = paragraphs.slice(0, 3).join("\n");
-
-    // Remove empty lines
-    const finalLyrics = truncatedLyrics.replace(/^\s*[\r\n]/gm, "");
-
-    document.getElementById("chorusLyrics").innerText = finalLyrics;
   } catch (error) {
     console.error(error);
   }
