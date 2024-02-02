@@ -105,7 +105,7 @@ function checkGuess() {
 
 function revealCorrectAnswer() {
   const resultMessage = document.getElementById("resultMessage");
-  resultMessage.innerText = `Sorry, you've exceeded the maximum attempts. The correct answer is: ${correctAnswers[0]}.Press Next Question to continue`;
+  resultMessage.innerText = `Sorry, you've exceeded the maximum attempts. The correct answer is: ${correctAnswers[0]}. Press Next Question to continue`;
 }
 
 function nextQuestion() {
