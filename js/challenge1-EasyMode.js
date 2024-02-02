@@ -86,7 +86,7 @@ function checkGuess() {
   const resultMessage = document.getElementById("resultMessage");
 
   if (correctAnswers.includes(userGuess)) {
-    resultMessage.innerText = "Correct! You guessed the song.";
+    resultMessage.innerText = "Correct! You guessed the song.YAY!";
     score += 5;
     updateScoreDisplay();
   } else {
