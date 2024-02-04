@@ -84,6 +84,7 @@ async function fetchData() {
 function checkGuess() {
   const userGuess = document.getElementById("guessInput").value.toLowerCase();
   const resultMessage = document.getElementById("resultMessage");
+  const submitButton = document.getElementById("submitButton");
 
   if (
     correctAnswers
@@ -91,8 +92,11 @@ function checkGuess() {
       .includes(userGuess.toLowerCase())
   ) {
     resultMessage.innerText = "Correct! You guessed the song.";
-    score += 5;
+    score += 10;
     updateScoreDisplay();
+
+    // Disable the submit button
+    submitButton.disabled = true;
   } else {
     incorrectAttempts++;
     resultMessage.innerText = `Incorrect. Attempt ${incorrectAttempts} of ${maxIncorrectAttempts}. Try again!`;
@@ -102,7 +106,6 @@ function checkGuess() {
     }
   }
 }
-
 function revealCorrectAnswer() {
   const resultMessage = document.getElementById("resultMessage");
   resultMessage.innerText = `Sorry, you've exceeded the maximum attempts. The correct answer is: ${correctAnswers[0]}. Press Next Question to continue`;
@@ -113,6 +116,8 @@ function nextQuestion() {
   document.getElementById("guessInput").value = "";
   document.getElementById("resultMessage").innerText = "";
   incorrectAttempts = 0; // Reset the incorrect attempts for the next question
+  const submitButton = document.getElementById("submitButton");
+  submitButton.disabled = false;
 }
 
 function updateScoreDisplay() {
