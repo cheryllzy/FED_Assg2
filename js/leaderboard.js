@@ -18,8 +18,13 @@ document.addEventListener("DOMContentLoaded", () => {
       // Populate the leaderboard table with fetched, sorted, and filtered data
       const leaderboardBody = document.getElementById("leaderboardBody");
 
-      filteredData.forEach((entry) => {
+      filteredData.forEach((entry, index) => {
         const row = document.createElement("tr");
+
+        // Display ranking as the first column
+        const rankCell = document.createElement("td");
+        rankCell.textContent = index + 1;
+        row.appendChild(rankCell);
 
         // Display username and points
         const usernameCell = document.createElement("td");
@@ -29,6 +34,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const pointsCell = document.createElement("td");
         pointsCell.textContent = entry.points;
         row.appendChild(pointsCell);
+
+        // Bold the top 3 entries
+        if (index < 3) {
+          rankCell.style.fontWeight = "bold";
+          usernameCell.style.fontWeight = "bold";
+          pointsCell.style.fontWeight = "bold";
+        }
 
         leaderboardBody.appendChild(row);
       });
