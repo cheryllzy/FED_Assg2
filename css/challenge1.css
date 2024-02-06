@@ -63,7 +63,14 @@ body {
   color: black;
 }
 
-.back-button{
-  z-index: 999;
+.back-button {
   cursor: pointer;
+}
+
+#scoreDisplay {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  font-size: 18px;
+  font-weight: bold;
 }
