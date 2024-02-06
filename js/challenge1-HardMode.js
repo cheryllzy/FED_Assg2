@@ -92,8 +92,7 @@ function checkGuess() {
       .includes(userGuess.toLowerCase())
   ) {
     resultMessage.innerText = "Correct! You guessed the song.";
-    score += 5;
-    updateScoreDisplay();
+    updateScoreDisplayWithAnimation(15); // Update score with animation
 
     // Disable the submit button
     submitButton.disabled = true;
@@ -122,6 +121,18 @@ function nextQuestion() {
 
 function updateScoreDisplay() {
   document.getElementById("scoreDisplay").innerText = `Score: ${score}`;
+}
+
+function updateScoreDisplayWithAnimation(points) {
+  const scoreDisplay = document.getElementById("scoreDisplay");
+  score += points;
+  scoreDisplay.innerText = `Score: ${score}`;
+  scoreDisplay.classList.add("score-animate"); // Add animation class
+
+  // After 2 seconds, remove animation class
+  setTimeout(() => {
+    scoreDisplay.classList.remove("score-animate");
+  }, 1000);
 }
 
 // Call the fetchData function to fetch and display the lyrics on page load
