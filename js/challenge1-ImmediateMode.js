@@ -2,7 +2,7 @@ const apiUrl = "https://genius-song-lyrics1.p.rapidapi.com/song/lyrics";
 const apiOptions = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "45fa6a87cemsh66d3cdf7833490ep1af944jsn2754853125fb",
+    "X-RapidAPI-Key": "3a291a6ae8msh31397a7b6be58dap1494fajsn60c7a135e826",
     "X-RapidAPI-Host": "genius-song-lyrics1.p.rapidapi.com",
   },
 };
@@ -92,8 +92,7 @@ function checkGuess() {
       .includes(userGuess.toLowerCase())
   ) {
     resultMessage.innerText = "Correct! You guessed the song.";
-    score += 10;
-    updateScoreDisplay();
+    updateScoreDisplayWithAnimation(10); // Update score with animation
 
     // Disable the submit button
     submitButton.disabled = true;
@@ -122,6 +121,18 @@ function nextQuestion() {
 
 function updateScoreDisplay() {
   document.getElementById("scoreDisplay").innerText = `Score: ${score}`;
+}
+
+function updateScoreDisplayWithAnimation(points) {
+  const scoreDisplay = document.getElementById("scoreDisplay");
+  score += points;
+  scoreDisplay.innerText = `Score: ${score}`;
+  scoreDisplay.classList.add("score-animate"); // Add animation class
+
+  // After 2 seconds, remove animation class
+  setTimeout(() => {
+    scoreDisplay.classList.remove("score-animate");
+  }, 1000);
 }
 
 // Call the fetchData function to fetch and display the lyrics on page load

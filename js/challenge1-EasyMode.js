@@ -2,7 +2,7 @@ const apiUrl = "https://genius-song-lyrics1.p.rapidapi.com/song/lyrics";
 const apiOptions = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "f1803d4f66mshee5c6d37d8308cdp18e61ajsn8ec3220126b9",
+    "X-RapidAPI-Key": "3a291a6ae8msh31397a7b6be58dap1494fajsn60c7a135e826",
     "X-RapidAPI-Host": "genius-song-lyrics1.p.rapidapi.com",
   },
 };
@@ -92,9 +92,7 @@ function checkGuess() {
       .includes(userGuess.toLowerCase())
   ) {
     resultMessage.innerText = "Correct! You guessed the song.";
-    score += 5;
-    updateScoreDisplay();
-
+    updateScoreDisplayWithAnimation(5); // Update score with animation
     // Disable the submit button
     submitButton.disabled = true;
   } else {
@@ -106,6 +104,7 @@ function checkGuess() {
     }
   }
 }
+
 function revealCorrectAnswer() {
   const resultMessage = document.getElementById("resultMessage");
   resultMessage.innerText = `Sorry, you've exceeded the maximum attempts. The correct answer is: ${correctAnswers[0]}. Press Next Question to continue`;
@@ -123,6 +122,19 @@ function nextQuestion() {
 function updateScoreDisplay() {
   document.getElementById("scoreDisplay").innerText = `Score: ${score}`;
 }
+
+function updateScoreDisplayWithAnimation(points) {
+  const scoreDisplay = document.getElementById("scoreDisplay");
+  score += points;
+  scoreDisplay.innerText = `Score: ${score}`;
+  scoreDisplay.classList.add("score-animate"); // Add animation class
+
+  // After 2 seconds, remove animation class
+  setTimeout(() => {
+    scoreDisplay.classList.remove("score-animate");
+  }, 1000);
+}
+
 
 // Call the fetchData function to fetch and display the lyrics on page load
 fetchData();
