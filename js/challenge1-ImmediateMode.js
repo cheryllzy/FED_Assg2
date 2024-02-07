@@ -2,7 +2,7 @@ const apiUrl = "https://genius-song-lyrics1.p.rapidapi.com/song/lyrics";
 const apiOptions = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "3a291a6ae8msh31397a7b6be58dap1494fajsn60c7a135e826",
+    "X-RapidAPI-Key": "cee755f0e7msh58196236969cad8p1ba14ejsn72b659f82d3a",
     "X-RapidAPI-Host": "genius-song-lyrics1.p.rapidapi.com",
   },
 };
@@ -122,48 +122,50 @@ function nextQuestion() {
 function updatePointsOnServer(points) {
   const username = getUsername(); // Get the username from session storage
 
-  fetch(`https://assignment2-1d63.restdb.io/rest/account?q={"username":"${username}"}`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-apikey': '65a4e6d5da104321e54ba32f'
+  fetch(
+    `https://assignment2-1d63.restdb.io/rest/account?q={"username":"${username}"}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "x-apikey": "65a4e6d5da104321e54ba32f",
+      },
     }
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log('Data array:', data);
-    if (data.length > 0) {
-      const accountId = data[0]._id; // Get the _id of the account
-      const currentPoints = data[0].points || 0; // Get current points or default to 0
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Data array:", data);
+      if (data.length > 0) {
+        const accountId = data[0]._id; // Get the _id of the account
+        const currentPoints = data[0].points || 0; // Get current points or default to 0
 
-      const updatedPoints = parseInt(currentPoints) + points; // Convert to number and calculate updated points
+        const updatedPoints = parseInt(currentPoints) + points; // Convert to number and calculate updated points
 
-
-      // Send PUT request to update points for the account
-      fetch(`https://assignment2-1d63.restdb.io/rest/account/${accountId}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'x-apikey': '65a4e6d5da104321e54ba32f'
-        },
-        body: JSON.stringify({
-          points: updatedPoints // Update points field
+        // Send PUT request to update points for the account
+        fetch(`https://assignment2-1d63.restdb.io/rest/account/${accountId}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            "x-apikey": "65a4e6d5da104321e54ba32f",
+          },
+          body: JSON.stringify({
+            points: updatedPoints, // Update points field
+          }),
         })
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Points updated successfully:', data);
-      })
-      .catch(error => {
-        console.error('Error updating points:', error);
-      });
-    } else {
-      console.error('Account not found');
-    }
-  })
-  .catch(error => {
-    console.error('Error fetching account:', error);
-  });
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Points updated successfully:", data);
+          })
+          .catch((error) => {
+            console.error("Error updating points:", error);
+          });
+      } else {
+        console.error("Account not found");
+      }
+    })
+    .catch((error) => {
+      console.error("Error fetching account:", error);
+    });
 }
 
 function updateScoreDisplay() {
@@ -190,14 +192,13 @@ fetchData();
 
 // Function to check if user is logged in
 function isLoggedIn() {
-  const username = sessionStorage.getItem('username');
+  const username = sessionStorage.getItem("username");
   return !!username; // Returns true if username exists, false otherwise
 }
 
-
 // Function to retrieve username from session storage
 function getUsername() {
-  return sessionStorage.getItem('username');
+  return sessionStorage.getItem("username");
 }
 
 if (isLoggedIn()) {
