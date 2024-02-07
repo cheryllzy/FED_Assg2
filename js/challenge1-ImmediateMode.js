@@ -2,7 +2,7 @@ const apiUrl = "https://genius-song-lyrics1.p.rapidapi.com/song/lyrics";
 const apiOptions = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "cee755f0e7msh58196236969cad8p1ba14ejsn72b659f82d3a",
+    "X-RapidAPI-Key": "21d46a2402msh639072302b8748ep1ee193jsnb585deee6d49",
     "X-RapidAPI-Host": "genius-song-lyrics1.p.rapidapi.com",
   },
 };
