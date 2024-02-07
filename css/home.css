@@ -43,7 +43,6 @@ h2 {
 .card .card-text {
   color: #000000;
   margin: 0.5rem 0.5rem 0.5rem 0.5rem;
-
 }
 
 .card-body1 {
@@ -70,6 +69,16 @@ h2 {
   border-radius: 0.5rem;
 }
 
-.card-link{
+.card-link {
   text-decoration: none;
+}
+
+.btn-primary {
+  background-color: #85b8ef;
+  border: 1px solid #85b8ef;
+}
+
+.btn-primary:hover {
+  background-color: #5fa1e7;
+  border-color: #5fa1e7;
 }
