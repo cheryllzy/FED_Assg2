@@ -135,6 +135,5 @@ function updateScoreDisplayWithAnimation(points) {
   }, 1000);
 }
 
-
 // Call the fetchData function to fetch and display the lyrics on page load
 fetchData();
