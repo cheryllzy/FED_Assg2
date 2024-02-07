@@ -1,72 +1,82 @@
 /* Global Styles */
 * {
-    font-family: "Poppins", sans-serif;
-  }
-  
-  body {
-    background-color: #0a0c1b;
-    color: #fff;
-  }
-  
-  table {
-    width: 80%;
-    margin: 20px auto;
-    border-collapse: collapse;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    border-radius: 8px;
-  }
-  
-  th,
-  td {
-    padding: 15px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-    background-color: #a0dbae;
-  }
-  
-  th {
-    background-color: #76d38c;
-    color: #333;
-  }
-  
-  /* Card Styles */
-  .card {
-    margin-top: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-  }
-  
-  .card-body {
-    text-align: center;
-    padding: 20px;
-  }
-  
-  .card-title {
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  .card-text {
-    color: #333;
-    margin-bottom: 5px;
-  }
-  
-  /* Leaderboard-specific Styles */
-  #card-body1 {
-    background-color: #8670ec;
-  }
-  
-  #card-body2 {
-    background-color: #f77883;
-  }
-  
-  #card-body3 {
-    background-color: #a6c8ed;
-  }
-  
-  /* Bootstrap Overrides */
-  .card-link {
-    text-decoration: none;
-  }
-  
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #0a0c1b;
+  color: #fff;
+}
+
+/* Center the text */
+.title {
+  text-align: center;
+  margin: 3rem 3rem 3rem 3rem;
+  color: rgb(255, 255, 255);
+}
+
+.bg-light {
+    background-color: #131735!important;
+}
+
+table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  background-color: #a0dbae;
+}
+
+th {
+  background-color: #76d38c;
+  color: #333;
+}
+
+/* Card Styles */
+.card {
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.card-body {
+  text-align: center;
+  padding: 20px;
+}
+
+.card-title {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  color: #333;
+  margin-bottom: 5px;
+}
+
+/* Leaderboard-specific Styles */
+#card-body1 {
+  background-color: #8670ec;
+}
+
+#card-body2 {
+  background-color: #f77883;
+}
+
+#card-body3 {
+  background-color: #a6c8ed;
+}
+
+/* Bootstrap Overrides */
+.card-link {
+  text-decoration: none;
+}
