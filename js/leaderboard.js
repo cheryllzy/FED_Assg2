@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const points = card.querySelector(".card-text[data-points]");
         // Update the text content of the elements with the data
         const rank = i === 0 ? "1st Place" : i === 1 ? "2nd Place" : "3rd Place";
-        username.textContent = `Username: ${filteredData[i].username}`;
+        username.textContent = `${filteredData[i].username}`;
         points.textContent = `Points: ${filteredData[i].points}`;
         card.querySelector(".card-title").textContent = rank;
       }
