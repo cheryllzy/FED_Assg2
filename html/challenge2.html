@@ -29,9 +29,25 @@
           class="back-button position-absolute top-0 start-0 m-3"
           onclick="goBack()"
         />
+
         <div class="card-header">
           <h2 class="text-center">Guess the Artist:</h2>
         </div>
+        <div class="card-body">
+          <div class="row justify-content-end">
+            <div class="col-auto">
+              <div class="btn-group btn-group-sm">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  onclick="openrule()"
+                >
+                  Game Rule
+                </button>
+              
+              </div>
+            </div>
+          </div>
         <div class="card-body">
           <div id="album-box" class="text-center" data-correct-answer=""></div>
 
@@ -62,6 +78,30 @@
         </div>
       </div>
     </div>
+
+    <div id="ruleModal">
+      <div id="ruleModalContent">
+        <span class="close-btn" onclick="closeRuleModal()">&times;</span>
+        <h2>Game Rules</h2>
+        <!-- Include your game rules content here -->
+        <p>
+          <p>
+            The objective of the game is to correctly identify the artist of a
+            given album name. Players will be given album name and
+            given 3 attempts to guess the correct artist. If the user used up
+            all 3 attempts, he/she will need to press next question to continue
+            the game. Points are awarded for each correct guess, and the player
+            with the highest score at the end of the game wins.
+          </p>
+          <br />
+          <h4>Scoring</h4>
+          <p class="points">
+           Each question answered correctly is awarded 5 points
+            each
+            
+          </p></p>
+      </div>
+    </div>
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -78,5 +118,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="/js/challenge2.js"></script>
+    <script src="/js/gamerule-popout.js"></script>
   </body>
 </html>

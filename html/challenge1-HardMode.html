@@ -49,6 +49,13 @@
                 <button
                   type="button"
                   class="btn btn-primary"
+                  onclick="openrule()"
+                >
+                  Game Rule
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
                   onclick="window.location.href='/html/challenge1-EasyMode.html'"
                 >
                   Easy
@@ -103,6 +110,36 @@
       </div>
     </div>
 
+
+    <div id="ruleModal">
+      <div id="ruleModalContent">
+        <span class="close-btn" onclick="closeRuleModal()">&times;</span>
+        <h2>Game Rules</h2>
+        <!-- Include your game rules content here -->
+        <p>
+          <p>
+            The objective of the game is to correctly identify the title of a
+            given musical track. Players will be given part of the lyrics and
+            given 3 attempts to guess the correct song title. If the user used up
+            all 3 attempts, he/she will need to press next question to continue
+            the game. Points are awarded for each correct guess, and the player
+            with the highest score at the end of the game wins.
+          </p>
+          <br />
+          <h4>Scoring</h4>
+          <p class="points">
+            Easy Level >>> Each question answered correctly is awarded 5 points
+            each
+            <br /><br />
+            Intermediate Level >>> Each question answered correctly is awarded 10
+            points each
+            <br /><br />
+            Hard Level >>> Each question answered correctly is awarded 15 points
+            each
+          </p></p>
+      </div>
+    </div>
+
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -119,5 +156,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="/js/challenge1-HardMode.js"></script>
+    <script src="/js/gamerule-popout.js"></script>
   </body>
 </html>
