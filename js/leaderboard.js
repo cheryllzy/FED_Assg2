@@ -15,35 +15,48 @@ document.addEventListener("DOMContentLoaded", () => {
       // Sort the filtered data in descending order based on 'points'
       filteredData.sort((a, b) => b.points - a.points);
 
-      // Populate the leaderboard table with fetched, sorted, and filtered data
+      // Populate the cards with the first three elements of the filtered data
+      for (let i = 0; i < 3; i++) {
+        // Select the card element by its index
+        const card = document.querySelectorAll('.card-body')[i];
+        // Select the username element within the card
+        const username = card.querySelector(".card-text[data-username]");
+        // Select the points element within the card
+        const points = card.querySelector(".card-text[data-points]");
+        // Update the text content of the elements with the data
+        const rank = i === 0 ? "1st Place" : i === 1 ? "2nd Place" : "3rd Place";
+        username.textContent = `Username: ${filteredData[i].username}`;
+        points.textContent = `Points: ${filteredData[i].points}`;
+        card.querySelector(".card-title").textContent = rank;
+      }
+
+      // Populate the table with the remaining elements of the filtered data
       const leaderboardBody = document.getElementById("leaderboardBody");
 
-      filteredData.forEach((entry, index) => {
-        const row = document.createElement("tr");
-
-        // Display ranking as the first column
+      for (let i = 3; i < filteredData.length; i++) {
+        // Create a new table row element
+        const tableRow = document.createElement("tr");
+        // Create a new table cell element for the rank
         const rankCell = document.createElement("td");
-        rankCell.textContent = index + 1;
-        row.appendChild(rankCell);
-
-        // Display username and points
+        // Set the text content of the rank cell with the index
+        rankCell.textContent = i + 1;
+        // Append the rank cell to the table row
+        tableRow.appendChild(rankCell);
+        // Create a new table cell element for the username
         const usernameCell = document.createElement("td");
-        usernameCell.textContent = entry.username;
-        row.appendChild(usernameCell);
-
+        // Set the text content of the username cell with the data
+        usernameCell.textContent = filteredData[i].username;
+        // Append the username cell to the table row
+        tableRow.appendChild(usernameCell);
+        // Create a new table cell element for the points
         const pointsCell = document.createElement("td");
-        pointsCell.textContent = entry.points;
-        row.appendChild(pointsCell);
-
-        // Bold the top 3 entries
-        if (index < 3) {
-          rankCell.style.fontWeight = "bold";
-          usernameCell.style.fontWeight = "bold";
-          pointsCell.style.fontWeight = "bold";
-        }
-
-        leaderboardBody.appendChild(row);
-      });
+        // Set the text content of the points cell with the data
+        pointsCell.textContent = filteredData[i].points;
+        // Append the points cell to the table row
+        tableRow.appendChild(pointsCell);
+        // Append the table row to the table body
+        leaderboardBody.appendChild(tableRow);
+      }
     })
     .catch((error) => console.error("Error fetching leaderboard data:", error));
 });
