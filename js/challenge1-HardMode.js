@@ -119,6 +119,53 @@ function nextQuestion() {
   submitButton.disabled = false;
 }
 
+function updatePointsOnServer(points) {
+  const username = getUsername(); // Get the username from session storage
+
+  fetch(`https://assignment2-1d63.restdb.io/rest/account?q={"username":"${username}"}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-apikey': '65a4e6d5da104321e54ba32f'
+    }
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Data array:', data);
+    if (data.length > 0) {
+      const accountId = data[0]._id; // Get the _id of the account
+      const currentPoints = data[0].points || 0; // Get current points or default to 0
+
+      const updatedPoints = parseInt(currentPoints) + points; // Convert to number and calculate updated points
+
+
+      // Send PUT request to update points for the account
+      fetch(`https://assignment2-1d63.restdb.io/rest/account/${accountId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-apikey': '65a4e6d5da104321e54ba32f'
+        },
+        body: JSON.stringify({
+          points: updatedPoints // Update points field
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Points updated successfully:', data);
+      })
+      .catch(error => {
+        console.error('Error updating points:', error);
+      });
+    } else {
+      console.error('Account not found');
+    }
+  })
+  .catch(error => {
+    console.error('Error fetching account:', error);
+  });
+}
+
 function updateScoreDisplay() {
   document.getElementById("scoreDisplay").innerText = `Score: ${score}`;
 }
@@ -133,7 +180,30 @@ function updateScoreDisplayWithAnimation(points) {
   setTimeout(() => {
     scoreDisplay.classList.remove("score-animate");
   }, 1000);
+
+  // Update points on the server
+  updatePointsOnServer(points);
 }
 
 // Call the fetchData function to fetch and display the lyrics on page load
 fetchData();
+
+// Function to check if user is logged in
+function isLoggedIn() {
+  const username = sessionStorage.getItem('username');
+  return !!username; // Returns true if username exists, false otherwise
+}
+
+
+// Function to retrieve username from session storage
+function getUsername() {
+  return sessionStorage.getItem('username');
+}
+
+if (isLoggedIn()) {
+  console.log("User is logged in");
+  const username = getUsername();
+  console.log("Username:", username);
+} else {
+  console.log("User is not logged in");
+}
