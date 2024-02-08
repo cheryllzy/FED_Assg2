@@ -140,6 +140,20 @@
           </p></p>
       </div>
     </div>
+    <!-- Music Controls Below Card -->
+    <div class="container mt-3">
+      <div class="row align-items-center">
+        <div class="col-auto me-3">
+          <button id="toggleButton" class="btn btn-primary">Play/Pause</button>
+        </div>
+        <div class="col-auto me-3">
+          <button id="stopButton" class="btn btn-primary">Stop</button>
+        </div>
+        <div class="col">
+          <input type="range" id="volumeSlider" min="0" max="1" step="0.01" class="form-range" />
+        </div>
+      </div>
+    </div>
 
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -160,6 +174,7 @@
       src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
       type="module"
     ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"></script>
     <script src="js/challenge1-HardMode.js"></script>
     <script src="js/gamerule-popout.js"></script>
   </body>
