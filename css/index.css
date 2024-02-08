@@ -1,20 +1,17 @@
-*{
-  font-family: 'Poppins', sans-serif;
+* {
+  font-family: "Poppins", sans-serif;
 }
 
 #gameName {
-  background-image: linear-gradient(to right, #ffffff, #00c3ff);
-  -webkit-background-clip: text;
-  color: transparent;
-  text-shadow: #333;
+  color: white;
 }
 
-#usernameHelp{
+#usernameHelp {
   color: #bdb2b2;
 }
 
 body .container #signup {
-  color:#1c1639;
+  color: #1c1639;
 }
 
 body {

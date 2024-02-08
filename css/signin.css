@@ -3,10 +3,7 @@
 }
 
 #gameName {
-  background-image: linear-gradient(to right, #ffffff, #00c3ff);
-  -webkit-background-clip: text;
-  color: transparent;
-  text-shadow: #333;
+  color:white
 }
 
 #usernameHelp{
