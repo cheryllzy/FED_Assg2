@@ -12,6 +12,7 @@ const options = {
 let retries = 0;
 let attempts = 0;
 const maxAttempts = 3;
+const submitButton = document.getElementById("submitButton");
 
 function clearFeedback() {
   document.getElementById("feedback").innerText = "";
@@ -88,6 +89,7 @@ function submitAnswer() {
 
   if (userAnswer.trim().toLowerCase() === correctAnswer.toLowerCase()) {
     document.getElementById("feedback").innerText = "Correct Answer!";
+    submitButton.disabled = true;
     attempts = 0; // Reset attempts on correct answer
   } else {
     if (attempts === maxAttempts) {
@@ -109,6 +111,8 @@ function submitAnswer() {
 function nextQuestion() {
   if (confirm("Do you really want to move to the next question?")) {
     fetchData();
+    const submitButton = document.getElementById("submitButton");
+    submitButton.disabled = false;
   }
   // You can add other conditions or remove the check based on your requirements
 }
@@ -123,13 +127,13 @@ function goBack() {
 
 // Initialize Howler.js
 var sound = new Howl({
-  src: ["/music/Winning Results  Mario Kart 64 OST.mp3"], 
+  src: ["/music/Winning Results  Mario Kart 64 OST.mp3"],
 });
 
 // Get references to the buttons and slider
-var toggleButton = document.getElementById('toggleButton');
-var stopButton = document.getElementById('stopButton');
-var volumeSlider = document.getElementById('volumeSlider');
+var toggleButton = document.getElementById("toggleButton");
+var stopButton = document.getElementById("stopButton");
+var volumeSlider = document.getElementById("volumeSlider");
 
 // Set default volume
 var defaultVolume = 0.1;
@@ -140,26 +144,26 @@ volumeSlider.value = defaultVolume;
 var isPlaying = false;
 
 // Event listeners for the buttons
-toggleButton.addEventListener('click', function() {
+toggleButton.addEventListener("click", function () {
   if (isPlaying) {
     sound.pause();
     isPlaying = false;
-    toggleButton.textContent = 'Play';
+    toggleButton.textContent = "Play";
   } else {
     sound.play();
     isPlaying = true;
-    toggleButton.textContent = 'Pause';
+    toggleButton.textContent = "Pause";
   }
 });
 
-stopButton.addEventListener('click', function() {
+stopButton.addEventListener("click", function () {
   sound.stop();
   isPlaying = false;
-  toggleButton.textContent = 'Play';
+  toggleButton.textContent = "Play";
 });
 
 // Event listener for the volume slider
-volumeSlider.addEventListener('input', function() {
+volumeSlider.addEventListener("input", function () {
   var volume = parseFloat(volumeSlider.value);
   sound.volume(volume);
 });
