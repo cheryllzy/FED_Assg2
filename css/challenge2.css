@@ -105,6 +105,24 @@ body {
   right: 15px;
 }
 
+@keyframes scoreAnimation {
+  0% {
+    color: white;
+    font-size: 1.5rem;
+  }
+  50% {
+    color: green;
+    font-size: 1.8rem;
+  }
+  100% {
+    color: white;
+    font-size: 1.5rem;
+  }
+}
+.score-animate {
+  animation: scoreAnimation 1s ease;
+}
+
 #scoreDisplay {
   position: fixed;
   top: 10px;
