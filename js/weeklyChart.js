@@ -16,7 +16,7 @@ async function fetchData() {
   const options = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "3aa13c23afmsh893d1a34146fa05p1a0076jsnde94a7216694",
+      "X-RapidAPI-Key": "c36a5f7059msh471e300fa89b3efp14514fjsn254ee1cf9c71",
       "X-RapidAPI-Host": "billboard-api2.p.rapidapi.com",
     },
   };
@@ -82,7 +82,7 @@ function goBack() {
 
 // Initialize Howler.js
 var sound = new Howl({
-  src: ["/music/LE SSERAFIM  Perfect Night Instrumental.mp3"], 
+  src: ["../music/LE SSERAFIM  Perfect Night Instrumental.mp3"], 
 });
 
 // Get references to the buttons and slider
