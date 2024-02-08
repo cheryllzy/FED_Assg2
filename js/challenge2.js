@@ -18,13 +18,6 @@ function clearFeedback() {
   document.getElementById("feedback").innerText = "";
 }
 
-function showCorrectAnswer() {
-  const albumBox = document.getElementById("album-box");
-  const correctAnswer = albumBox.dataset.correctAnswer;
-
-  alert("The correct answer is: " + correctAnswer);
-}
-
 async function fetchData() {
   try {
     const response = await fetch(url, options);
@@ -80,6 +73,8 @@ async function fetchData() {
   }
 }
 
+let incorrectAttempts = 0; // Define a global variable to track incorrect attempts
+
 function submitAnswer() {
   const userAnswer = document.getElementById("answer-input").value;
   const correctAnswer =
@@ -91,30 +86,31 @@ function submitAnswer() {
     document.getElementById("feedback").innerText = "Correct Answer!";
     submitButton.disabled = true;
     attempts = 0; // Reset attempts on correct answer
+    incorrectAttempts = 0; // Reset incorrect attempts on correct answer
   } else {
+    incorrectAttempts++; // Increment incorrect attempts
     if (attempts === maxAttempts) {
       document.getElementById("feedback").innerText =
         "Sorry, you've reached the maximum attempts. The correct answer is: " +
         correctAnswer;
+      submitButton.disabled = true;
     } else {
-      document.getElementById("feedback").innerText =
-        "Incorrect Answer. Try again.";
+      document.getElementById("feedback").innerText = `Incorrect. Attempt ${incorrectAttempts} of ${maxAttempts}. Try again.`;
     }
   }
 
   if (attempts === maxAttempts) {
     showCorrectAnswer(); // Call the function to show the correct answer
     fetchData(); // Fetch a new question after showing the correct answer
+    incorrectAttempts = 0; // Reset incorrect attempts on moving to the next question
   }
 }
 
 function nextQuestion() {
-  if (confirm("Do you really want to move to the next question?")) {
-    fetchData();
-    const submitButton = document.getElementById("submitButton");
-    submitButton.disabled = false;
-  }
-  // You can add other conditions or remove the check based on your requirements
+  incorrectAttempts = 0; // Reset incorrect attempts on fetching a new question
+  fetchData();
+  const submitButton = document.getElementById("submitButton");
+  submitButton.disabled = false;
 }
 
 // Initial fetch
