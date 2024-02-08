@@ -19,26 +19,27 @@ Mobile View:https://www.figma.com/file/849taZXZFj7WeMnz7PvyEb/FED-assignment-2-M
 
 Existing Features
 
-1) Log in - Allows user to login by having them fill up the login details such as username and password. It then allows access into the home page if login details match the data on RestDB.
+1) Log in - Allows user to login by having them fill up the login details such as username and password. It then allows access into the home page if login details match the data on RestDB. (Cheryl)
 
-2) Sign Up - Allows user to signup by having them fill up the details such as username and password. These details will then be stored into RestDB to allow them to log in with the same account. 
+2) Sign Up - Allows user to signup by having them fill up the details such as username and password. These details will then be stored into RestDB to allow them to log in with the same account. (Cheryl)
 
-3) Session Storage -  The session storage allows the storage of the username to be able to access the account and update the number of points. If the user gains points from any of the challenges, it will be reflected in their accounts. 
+3) Session Storage -  The session storage allows the storage of the username to be able to access the account and update the number of points. If the user gains points from any of the challenges, it will be reflected in their accounts. (Cheryl)
 
-4) Home Page - Allows user to navigate around the pages using the 4 cards.
+4) Home Page - Allows user to navigate around the pages using the 4 cards. (Cheryl)
 
-5) Challenge 1 (Guess the Song) - Allows users to guess the song using lyrics and earn the respective points depending on the difficulty chosen. Genius API is used here to extract the song lyrics and song title. 
+5) Challenge 1 (Guess the Song) - Allows users to guess the song using lyrics and earn the respective points depending on the difficulty chosen. Genius API is used here to extract the song lyrics and song title. (Apple)
 
-6) Challenge 2 (Guess the Artist) - Allows user to guess the artist using album name and earn points. Genius API is used here to extract the album name and artist name.
+6) Challenge 2 (Guess the Artist) - Allows user to guess the artist using album name and earn points. Genius API is used here to extract the album name and artist name. (Apple)
 
-7) Weekly Chart - Allows user to look out for the lastest trend of music from the past week.Billboard API is used here to extracting the rank and song title.
+7) Weekly Chart - Allows user to look out for the lastest trend of music from the past week.Billboard API is used here to extracting the rank and song title. (Apple)
 
-8) Leaderboard - Allow users to view the leading players with the highest number of points.The points are stored and retrieved from RestDB. It then ranks the players from highest to lowest points. 
+8) Leaderboard - Allow users to view the leading players with the highest number of points.The points are stored and retrieved from RestDB. It then ranks the players from highest to lowest points. (Cheryl/Apple)
 
 Additional features to implement in the future: 
 Implementing a real-time chat feature for users to discuss and share music insights.
 Input new interactive calendar - for user to see furture music event and have a heads up.
 Adding a timer to the challenges. 
+
 
 ## Technologies Used
 
@@ -88,7 +89,9 @@ This project uses Howler JS to play audios seamlessly.
 Official Website: https://howlerjs.com/
 
 ## Testing
-The project has been tested on multiple browsers (Google chrome (default), Firefox,Internet Explorer, Microosoft Edge) to ensure a consistent user experience.The project is fully compatible with the different browser, displaying as intended.
+The project has been tested on multiple browsers (Google chrome (default), Firefox, Internet Explorer, Microsoft Edge) to ensure a consistent user experience.The project is fully compatible with the different browser, displaying as intended.
+
+Weekly Chart has a limit of 30 requests and won't work past that. 
 
 ## Credits:
 SVG used for home.html cards were taken from svgrepo.com
