@@ -16,7 +16,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/challenge1.css" />
+    <link rel="stylesheet" href="css/challenge1.css" />
   </head>
   <body>
     <div class="container mt-5">
@@ -26,7 +26,7 @@
             <div class="col">
               <a href="home.html">
                 <img
-                  src="/img/back-svgrepo-com.svg"
+                  src="img/back-svgrepo-com.svg"
                   alt="Back Arrow"
                   width="30"
                   height="30"
@@ -57,21 +57,21 @@
                 <button
                   type="button"
                   class="btn btn-primary"
-                  onclick="window.location.href='/html/challenge1-EasyMode.html'"
+                  onclick="window.location.href='challenge1-EasyMode.html'"
                 >
                   Easy
                 </button>
                 <button
                   type="button"
                   class="btn btn-primary"
-                  onclick="window.location.href='/html/challenge1-IntermediateMode.html'"
+                  onclick="window.location.href='challenge1-IntermediateMode.html'"
                 >
                   Intermediate
                 </button>
                 <button
                   type="button"
                   class="btn btn-primary"
-                  onclick="window.location.href='/html/challenge1-HardMode.html'"
+                  onclick="window.location.href='challenge1-HardMode.html'"
                 >
                   Hard
                 </button>
@@ -111,33 +111,32 @@
       </div>
     </div>
 
-
     <div id="ruleModal">
       <div id="ruleModalContent">
         <span class="close-btn" onclick="closeRuleModal()">&times;</span>
         <h2>Game Rules</h2>
         <!-- Include your game rules content here -->
+        <p></p>
         <p>
-          <p>
-            The objective of the game is to correctly identify the title of a
-            given musical track. Players will be given part of the lyrics and
-            given 3 attempts to guess the correct song title. If the user used up
-            all 3 attempts, he/she will need to press next question to continue
-            the game. Points are awarded for each correct guess, and the player
-            with the highest score at the end of the game wins.
-          </p>
-          <br />
-          <h4>Scoring</h4>
-          <p class="points">
-            Easy Level >>> Each question answered correctly is awarded 5 points
-            each
-            <br /><br />
-            Intermediate Level >>> Each question answered correctly is awarded 10
-            points each
-            <br /><br />
-            Hard Level >>> Each question answered correctly is awarded 15 points
-            each
-          </p></p>
+          The objective of the game is to correctly identify the title of a
+          given musical track. Players will be given part of the lyrics and
+          given 3 attempts to guess the correct song title. If the user used up
+          all 3 attempts, he/she will need to press next question to continue
+          the game. Points are awarded for each correct guess, and the player
+          with the highest score at the end of the game wins.
+        </p>
+        <br />
+        <h4>Scoring</h4>
+        <p class="points">
+          Easy Level >>> Each question answered correctly is awarded 5 points
+          each
+          <br /><br />
+          Intermediate Level >>> Each question answered correctly is awarded 10
+          points each
+          <br /><br />
+          Hard Level >>> Each question answered correctly is awarded 15 points
+          each
+        </p>
       </div>
     </div>
 
@@ -160,7 +159,7 @@
       src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
       type="module"
     ></script>
-    <script src="/js/challenge1-ImmediateMode.js"></script>
-    <script src="/js/gamerule-popout.js"></script>
+    <script src="js/challenge1-EasyMode.js"></script>
+    <script src="js/gamerule-popout.js"></script>
   </body>
 </html>
