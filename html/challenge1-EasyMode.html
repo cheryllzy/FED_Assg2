@@ -37,6 +37,7 @@
             <div class="col text-center">
               <h2>Guess the Song:</h2>
             </div>
+            <div id="correctAnimationContainer"></div>
             <div class="col"></div>
             <!-- This empty column ensures the centering -->
           </div>
@@ -110,33 +111,32 @@
       </div>
     </div>
 
-
     <div id="ruleModal">
       <div id="ruleModalContent">
         <span class="close-btn" onclick="closeRuleModal()">&times;</span>
         <h2>Game Rules</h2>
         <!-- Include your game rules content here -->
+        <p></p>
         <p>
-          <p>
-            The objective of the game is to correctly identify the title of a
-            given musical track. Players will be given part of the lyrics and
-            given 3 attempts to guess the correct song title. If the user used up
-            all 3 attempts, he/she will need to press next question to continue
-            the game. Points are awarded for each correct guess, and the player
-            with the highest score at the end of the game wins.
-          </p>
-          <br />
-          <h4>Scoring</h4>
-          <p class="points">
-            Easy Level >>> Each question answered correctly is awarded 5 points
-            each
-            <br /><br />
-            Intermediate Level >>> Each question answered correctly is awarded 10
-            points each
-            <br /><br />
-            Hard Level >>> Each question answered correctly is awarded 15 points
-            each
-          </p></p>
+          The objective of the game is to correctly identify the title of a
+          given musical track. Players will be given part of the lyrics and
+          given 3 attempts to guess the correct song title. If the user used up
+          all 3 attempts, he/she will need to press next question to continue
+          the game. Points are awarded for each correct guess, and the player
+          with the highest score at the end of the game wins.
+        </p>
+        <br />
+        <h4>Scoring</h4>
+        <p class="points">
+          Easy Level >>> Each question answered correctly is awarded 5 points
+          each
+          <br /><br />
+          Intermediate Level >>> Each question answered correctly is awarded 10
+          points each
+          <br /><br />
+          Hard Level >>> Each question answered correctly is awarded 15 points
+          each
+        </p>
       </div>
     </div>
 
@@ -154,6 +154,10 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+      type="module"
     ></script>
     <script src="/js/challenge1-EasyMode.js"></script>
     <script src="/js/gamerule-popout.js"></script>

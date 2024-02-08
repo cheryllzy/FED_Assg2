@@ -92,6 +92,7 @@ function checkGuess() {
       .includes(userGuess.toLowerCase())
   ) {
     resultMessage.innerText = "Correct! You guessed the song.";
+    playCorrectAnimation(); // Play Lottie animation
     updateScoreDisplayWithAnimation(15); // Update score with animation
 
     // Disable the submit button
@@ -102,12 +103,14 @@ function checkGuess() {
 
     if (incorrectAttempts >= maxIncorrectAttempts) {
       revealCorrectAnswer();
+      submitButton.disabled = true;
     }
   }
 }
 function revealCorrectAnswer() {
   const resultMessage = document.getElementById("resultMessage");
   resultMessage.innerText = `Sorry, you've exceeded the maximum attempts. The correct answer is: ${correctAnswers[0]}. Press Next Question to continue`;
+  playIncorrectAnimation();
 }
 
 function nextQuestion() {
@@ -207,4 +210,105 @@ if (isLoggedIn()) {
   console.log("Username:", username);
 } else {
   console.log("User is not logged in");
+}
+
+// lottie animation
+function playCorrectAnimation() {
+  // Create a div element to contain the Lottie animation
+  const animationContainer = document.createElement("div");
+  animationContainer.id = "correctAnimationContainer";
+  animationContainer.style.position = "fixed";
+  animationContainer.style.top = "50%";
+  animationContainer.style.left = "50%";
+  animationContainer.style.transform = "translate(-50%, -50%)";
+  animationContainer.style.zIndex = "9999";
+
+  // Append the animation container to the body
+  document.body.appendChild(animationContainer);
+
+  // Set the inner HTML of the animation container to the Lottie animation player
+  animationContainer.innerHTML =
+    '<dotlottie-player src="https://lottie.host/fd893708-4a0a-44e5-9799-e10a55e4aff5/sFo7BUTXsf.json" background="transparent" speed="0.8" style="width: 1000px; height: 1000px;" autoplay></dotlottie-player>';
+
+  // Create a div element for the overlay
+  const overlay = document.createElement("div");
+  overlay.style.position = "fixed";
+  overlay.style.top = "0";
+  overlay.style.left = "0";
+  overlay.style.width = "100%";
+  overlay.style.height = "100%";
+  overlay.style.backgroundColor = "rgba(0, 0, 0, 0)"; // Fully transparent black color
+  overlay.style.zIndex = "9998"; // Place the overlay below the animation container
+  overlay.style.transition = "background-color 1s"; // Smooth transition for background color change
+
+  // Append the overlay to the body
+  document.body.appendChild(overlay);
+
+  // Trigger reflow to ensure transition is applied
+  void overlay.offsetWidth;
+
+  // Gradually change the background color to dark
+  overlay.style.backgroundColor = "rgba(0, 0, 0, 0.5)"; // Semi-transparent black color
+
+  // After 2 seconds, remove the overlay and the animation container
+  setTimeout(() => {
+    // Gradually change the background color back to transparent
+    overlay.style.backgroundColor = "rgba(0, 0, 0, 0)"; // Fully transparent black color
+
+    // Remove the overlay and the animation container after the transition
+    setTimeout(() => {
+      overlay.remove();
+      animationContainer.remove();
+    }, 1000);
+  }, 1000); // Wait for 1 second before starting to revert the transition
+}
+
+function playIncorrectAnimation() {
+  // Create a div element to contain the Lottie animation
+  const animationContainer = document.createElement("div");
+  animationContainer.id = "incorrectAnimationContainer";
+  animationContainer.style.position = "fixed";
+  animationContainer.style.top = "50%";
+  animationContainer.style.left = "50%";
+  animationContainer.style.transform = "translate(-50%, -50%)";
+  animationContainer.style.zIndex = "9999";
+
+  // Append the animation container to the body
+  document.body.appendChild(animationContainer);
+
+  // Set the inner HTML of the animation container to the Lottie animation player
+  animationContainer.innerHTML =
+    '<dotlottie-player src="https://lottie.host/653499bf-f010-4969-9892-214dbfd64ff8/uI6A3n5C4I.json" background="transparent" speed="0.6" style="width: 750px; height: 750px;" loop autoplay></dotlottie-player>';
+
+  // Create a div element for the overlay
+  const overlay = document.createElement("div");
+  overlay.style.position = "fixed";
+  overlay.style.top = "0";
+  overlay.style.left = "0";
+  overlay.style.width = "100%";
+  overlay.style.height = "100%";
+  overlay.style.backgroundColor = "rgba(0, 0, 0, 0)"; // Fully transparent black color
+  overlay.style.zIndex = "9998"; // Place the overlay below the animation container
+  overlay.style.transition = "background-color 1s"; // Smooth transition for background color change
+
+  // Append the overlay to the body
+  document.body.appendChild(overlay);
+
+  // Trigger reflow to ensure transition is applied
+  void overlay.offsetWidth;
+
+  // Gradually change the background color to dark
+  overlay.style.backgroundColor = "rgba(0, 0, 0, 0.5)"; // Semi-transparent black color
+
+  // After 2 seconds, remove the overlay and the animation container
+  setTimeout(() => {
+    // Gradually change the background color back to transparent
+    overlay.style.backgroundColor = "rgba(0, 0, 0, 0)"; // Fully transparent black color
+
+    // Remove the overlay and the animation container after the transition
+    setTimeout(() => {
+      overlay.remove();
+      animationContainer.remove();
+    }, 1000);
+  }, 1000); // Wait for 1 second before starting to revert the transition
 }

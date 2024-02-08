@@ -90,3 +90,7 @@ challenge 1(guess the song) , challenge 2 (guess the artist) - https://rapidapi.
 weekly chart - https://rapidapi.com/LDVIN/api/billboard-api
 
 transition animation - https://lottiefiles.com/animations/music-sound-equalizer-loader-7AMojzJim6
+
+correct - https://lottiefiles.com/animations/congratulations-0UvPfxrW4h
+wrong - https://lottiefiles.com/animations/cross-MhToAP9KFt
+loading - https://lottiefiles.com/animations/loading-spinner-dots-d1QHolDFMF
