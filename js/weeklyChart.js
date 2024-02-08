@@ -82,7 +82,7 @@ function goBack() {
 
 // Initialize Howler.js
 var sound = new Howl({
-  src: ["../music/LE SSERAFIM  Perfect Night Instrumental.mp3"], 
+  src: ["music/LE SSERAFIM  Perfect Night Instrumental.mp3"], 
 });
 
 // Get references to the buttons and slider

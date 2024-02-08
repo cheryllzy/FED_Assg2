@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Initialize Howler.js
 var sound = new Howl({
-  src: ["../music/TWICE  I GOT YOU Official Instrumental.mp3"], 
+  src: ["music/TWICE  I GOT YOU Official Instrumental.mp3"], 
 });
 
 // Get references to the buttons and slider
