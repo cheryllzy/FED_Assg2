@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loading Animation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+      type="module"
+    ></script>
+    <style>
+      * {
+        font-family: "Poppins", sans-serif;
+      }
+
+      h1,
+      h2 {
+        color: white;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column; /* Align content vertically */
+        height: 100vh;
+        background-color: #0a0c1b;
+        color: white; /* Set text color */
+      }
+      .loading-text {
+        margin-top: 20px; /* Adjust as needed */
+        font-size: 25px; /* Set font size */
+      }
+    </style>
+  </head>
+  <body>
+    <dotlottie-player
+      id="loadingAnimation"
+      src="https://lottie.host/2aa82359-ebc3-4365-85bf-05c2669accb9/zTGwfp4jg1.json"
+      background="transparent"
+      speed="1"
+      style="width: 400px; height: 400px"
+      loop
+      autoplay
+    ></dotlottie-player>
+    <div class="loading-text"><h2>Loading this week's top charts...</h2></div>
+
+    <script>
+      const loadingAnimation = document.getElementById("loadingAnimation");
+
+      // Set a timeout to redirect after 5 seconds
+      setTimeout(() => {
+        // Redirect to weeklychart.html
+        window.location.href = "leaderboard.html";
+      }, 5000); // 5000 milliseconds = 5 seconds
+    </script>
+  </body>
+</html>

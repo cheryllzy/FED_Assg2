@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loading Animation</title>
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+      type="module"
+    ></script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #0a0c1b;
+      }
+    </style>
+  </head>
+  <body>
+    <dotlottie-player
+      id="loadingAnimation"
+      src="https://lottie.host/97b2097a-b713-478b-9234-004973a86021/4wEPvkEAqI.json"
+      background="transparent"
+      speed="1"
+      style="width: 600px; height: 600px"
+      autoplay
+    ></dotlottie-player>
+
+    <script>
+      const loadingAnimation = document.getElementById("loadingAnimation");
+
+      // Set a timeout to redirect after 3 seconds
+      setTimeout(() => {
+        // Redirect to challenge-1-EasyMode.html
+        window.location.href = "challenge1-EasyMode.html";
+      }, 3100); // 3000 milliseconds = 3 seconds
+    </script>
+  </body>
+</html>
