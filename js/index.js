@@ -28,7 +28,7 @@ document
           const userData = data[0]; // Assuming data contains user information
           sessionStorage.setItem("username", userData.username); // Assuming user ID is stored in "_id" field
           // Redirect to home.html after successful login
-          window.location.href = "../home.html";
+          window.location.href = "home.html";
         } else {
           alert("Login unsuccessful. Please check your username and password.");
         }
