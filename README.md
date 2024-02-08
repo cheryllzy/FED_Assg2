@@ -82,7 +82,7 @@ special bugs:
 
 In addition, this section I will show how my project looks and works on different browsers and screen sizes.
 
-The project has been tested on multiple browsers (google chrome(default),Firefox,Internet explorer,mircosoft edge) to ensure a consistent user experience.The project is fully compatible with the different browser, displaying as intended.However screens with a larger display area, the layout is not proportionate.
+The project has been tested on multiple browsers (google chrome(default),Firefox,Internet explorer,mircosoft edge) to ensure a consistent user experience.The project is fully compatible with the different browser, displaying as intended..
 
 # Credits:
 
