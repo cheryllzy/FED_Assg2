@@ -18,56 +18,65 @@ In this section, I will go over the different parts of my project, and describe 
 
 Existing Features
 
-Feature 1 - allow user to login by having them fill up the login details such as username and password
+Feature 1 - allow user to login by having them fill up the login details such as username and password.Information will be retrived from the RestDB
 
-Feature 2 - allow user to signup by having them fill up the login details such as username and password
+Feature 2 - allow user to signup by having them fill up the login details such as username and password.Infomation will be stored in RestDB
 
 Feature 3 - allow user to navigate around the pages using the menus bar in the homepage
 
-Feature 4 - allow user to guess the song using lyrics and earn repective point in various challenge(easy 5 point each,intermediate 10 points each,hard 15 points each)
+Feature 4 - allow user to guess the song using lyrics and earn repective point in various challenge(easy 5 point each,intermediate 10 points each,hard 15 points each).API is used here to extract the song lyrics and songn title for the answer
 
-Feature 5 - allow user to guess the artist using album name and earn points in the challenge (5 points each)
+Feature 5 - allow user to guess the artist using album name and earn points in the challenge (5 points each).API is used here to extract the album name and artist name for the answer
 
-Feature 6 - allow user to look out for the lastest trend of music for the past week
+Feature 6 - allow user to look out for the lastest trend of music for the past week.API is used here for extracting the trending music for the past week
 
-Feature 7 - allow user to view who is leading in the leaderboard with the highest amount of points
+Feature 7 - allow user to view who is leading in the leaderboard with the highest amount of points.Infomation will be taken from the RestDB and the points will be updated once the user got the correct answer in the challenges.
 
 In addition, I will use this section to discuss plans for additional features to be implemented in the future:
-
 Feature idea:
 Implementing a real-time chat feature for users to discuss and share music insights.
-
 Input new interactive calendar - for user to see furture music event and have a heads up.
 
 # Technologies Used
 
-HTML
-the project uses html to create a basic structure of the website.
+HTML:
+The project uses html to create a basic structure of the website.
 Testing
 Official website:https://html.spec.whatwg.org/
 
-CSS
-the project use css for styling and layout, ensuring a visually appealing and consistent design across the website.
-official website: https://www.w3.org/Style/CSS/Overview.en.html
+CSS:
+The project use css for styling and layout, ensuring a visually appealing and consistent design across the website.
+Offical website: https://www.w3.org/Style/CSS/Overview.en.html
 
-Javascript
-the project use JavaScript to adds interactivity and dynamic features to the website, enhancing the user experience.
+Javascript:
+The project use JavaScript to adds interactivity and dynamic features to the website, enhancing the user experience.
 example like vaildation,local storeage
+Offical website:https://developer.mozilla.org/en-US/docs/Web/JavaScript
 
-official website:https://developer.mozilla.org/en-US/docs/Web/JavaScript
+Github:
+The project use github is a code hosting platform for version control and collaboration.It also allow version tracking
+Offical website:https://github.com/
 
-github
-the project use github is a code hosting platform for version control and collaboration.It also allow version tracking
-official website:https://github.com/
-
-Figma(WireFrame)
-the project use Figma for prototyping, and user interface (UI) design.
+Figma(WireFrame):
+The project use Figma for prototyping, and user interface (UI) design.
 Example like how does the website in desktop look like in the mobile view.Quick look on how the overview layout look like and able to follow to do the final code using html,css,javascript.
-official website:https://www.figma.com/
+Offical website:https://www.figma.com/
+
+RestDB:
+This project use RestDB to store and retrieve user information, leaderboard data
+Offical Website:https://restdb.io/
+
+Bootstrap:
+This project use bookstrap to create a responsive design that adapts seamlessly to different screen sizes and devices.
+Offical website:https://getbootstrap.com/
+
+RapidAPI:
+This project use RapidAPI to extract song lyrics, album names,artist information,and weekly chart songs to enhance the user experience.
+Offical website:https://rapidapi.com/
 
 For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, example:
 
-speical bugs:
+special bugs:
 
 # Tested
 
