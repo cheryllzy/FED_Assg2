@@ -325,7 +325,7 @@ function playIncorrectAnimation() {
 
 // Initialize Howler.js
 var sound = new Howl({
-  src: ["/music/Yoshis Island Athletic Remix Theme  Super Smash Bros Brawl.mp3"], // Provide the path to your audio file
+  src: ["/music/Yoshis Island Athletic Remix Theme  Super Smash Bros Brawl.mp3"], 
 });
 
 // Get references to the buttons and slider

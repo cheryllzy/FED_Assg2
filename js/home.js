@@ -19,7 +19,7 @@ if (isLoggedIn()) {
 
 // Initialize Howler.js
 var sound = new Howl({
-  src: ["/music/Driftveil City Pokemon Black White.mp3"], // Provide the path to your audio file
+  src: ["/music/Driftveil City Pokemon Black White.mp3"], 
 });
 
 // Get references to the buttons and slider

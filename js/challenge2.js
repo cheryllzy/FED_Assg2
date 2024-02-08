@@ -123,7 +123,7 @@ function goBack() {
 
 // Initialize Howler.js
 var sound = new Howl({
-  src: ["/music/Winning Results  Mario Kart 64 OST.mp3"], // Provide the path to your audio file
+  src: ["/music/Winning Results  Mario Kart 64 OST.mp3"], 
 });
 
 // Get references to the buttons and slider

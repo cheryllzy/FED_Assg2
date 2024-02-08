@@ -39,6 +39,20 @@
         <tbody id="tableBody"></tbody>
       </table>
     </div>
+    <!-- Music Controls Below Card -->
+    <div class="container mt-3">
+      <div class="row align-items-center">
+        <div class="col-auto me-3">
+          <button id="toggleButton" class="btn btn-primary">Play/Pause</button>
+        </div>
+        <div class="col-auto me-3">
+          <button id="stopButton" class="btn btn-primary">Stop</button>
+        </div>
+        <div class="col">
+          <input type="range" id="volumeSlider" min="0" max="1" step="0.01" class="form-range" />
+        </div>
+      </div>
+    </div>
 
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -55,6 +69,7 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"></script>
     <script src="js/weeklyChart.js"></script>
   </body>
 </html>
