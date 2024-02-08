@@ -2,6 +2,21 @@
   font-family: 'Poppins', sans-serif;
 }
 
+#gameName {
+  background-image: linear-gradient(to right, #ffffff, #00c3ff);
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: #333;
+}
+
+#usernameHelp{
+  color: #bdb2b2;
+}
+
+body .container #signup {
+  color:#1c1639;
+}
+
 body {
   display: flex;
   align-items: center;
@@ -13,7 +28,8 @@ body {
 }
 
 .container {
-  background-color: #24273d;
+  background-image: linear-gradient(to right, #2466ad, #d04550);
+  background-color: #0d3c6f;
   padding: 20px;
   margin: 0;
   border-radius: 1rem;
