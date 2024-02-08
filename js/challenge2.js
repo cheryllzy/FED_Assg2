@@ -1,6 +1,6 @@
 // Add API Link and Key
 const url =
-  "https://genius-song-lyrics1.p.rapidapi.com/chart/albums/?time_period=week&per_page=10&page=1";
+  "https://genius.p.rapidapi.com/chart/albums?time_period=month&per_page=50&page=1";
 const options = {
   method: "GET",
   headers: {
