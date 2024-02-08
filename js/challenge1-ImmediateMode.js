@@ -321,3 +321,46 @@ function playIncorrectAnimation() {
     }, 1000);
   }, 1000); // Wait for 1 second before starting to revert the transition
 }
+
+// Initialize Howler.js
+var sound = new Howl({
+  src: ["/music/Yoshis Island Athletic Remix Theme  Super Smash Bros Brawl.mp3"], // Provide the path to your audio file
+});
+
+// Get references to the buttons and slider
+var toggleButton = document.getElementById('toggleButton');
+var stopButton = document.getElementById('stopButton');
+var volumeSlider = document.getElementById('volumeSlider');
+
+// Set default volume
+var defaultVolume = 0.1;
+sound.volume(defaultVolume);
+volumeSlider.value = defaultVolume;
+
+// Variable to keep track of playback state
+var isPlaying = false;
+
+// Event listeners for the buttons
+toggleButton.addEventListener('click', function() {
+  if (isPlaying) {
+    sound.pause();
+    isPlaying = false;
+    toggleButton.textContent = 'Play';
+  } else {
+    sound.play();
+    isPlaying = true;
+    toggleButton.textContent = 'Pause';
+  }
+});
+
+stopButton.addEventListener('click', function() {
+  sound.stop();
+  isPlaying = false;
+  toggleButton.textContent = 'Play';
+});
+
+// Event listener for the volume slider
+volumeSlider.addEventListener('input', function() {
+  var volume = parseFloat(volumeSlider.value);
+  sound.volume(volume);
+});
