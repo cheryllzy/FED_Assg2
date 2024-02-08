@@ -1,12 +1,22 @@
 async function fetchData() {
-  const date = "2024-01-15";
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  let mm = today.getMonth() + 1; // Months start at 0!
+  let dd = today.getDate();
+
+  if (dd < 10) dd = "0" + dd;
+  if (mm < 10) mm = "0" + mm;
+
+  const formattedToday = `${yyyy}-${mm}-${dd}`;
+  console.log(formattedToday); // Get datetime now 
+
   const range = "1-10";
 
-  const url = `https://billboard-api2.p.rapidapi.com/hot-100?date=${date}&range=${range}`;
+  const url = `https://billboard-api2.p.rapidapi.com/hot-100?date=${formattedToday}&range=${range}`;
   const options = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "a4123a0c9emshae37437481acf31p116ab5jsn6065e0210c9f",
+      "X-RapidAPI-Key": "3aa13c23afmsh893d1a34146fa05p1a0076jsnde94a7216694",
       "X-RapidAPI-Host": "billboard-api2.p.rapidapi.com",
     },
   };
